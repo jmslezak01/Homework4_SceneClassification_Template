@@ -230,7 +230,8 @@ def create_results_webpage(train_image_paths, test_image_paths,
 						anti_aliasing=True, mode='wrap')
 
 					name = os.path.basename(thisExample)
-					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp, quality=100)
+					tmp_uint8 = tmp.astype(np.uint8)
+					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp_uint8, quality=100)
 					f.write('<td bgcolor=LightBlue>')
 					f.write('<img src="%s" width=%d height=%d>' % ('thumbnails/' + cat + '_' + name, width, height))
 					f.write('</td>\n')
@@ -247,7 +248,8 @@ def create_results_webpage(train_image_paths, test_image_paths,
 						anti_aliasing=True, mode='wrap')
 
 					name = os.path.basename(thisExample)
-					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp, quality=100)
+					tmp_uint8 = tmp.astype(np.uint8)
+					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp_uint8, quality=100)
 					f.write('<td bgcolor=LightGreen>');
 					f.write('<img src="%s" width=%d height=%d>' % ('thumbnails/' + cat + '_' + name, width, height))
 					f.write('</td>\n');
@@ -264,7 +266,8 @@ def create_results_webpage(train_image_paths, test_image_paths,
 						anti_aliasing=True, mode='wrap')
 
 					name = os.path.basename(thisExample)
-					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp, quality=100)
+					tmp_uint8 = tmp.astype(np.uint8)
+					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp_uint8, quality=100)
 					f.write('<td bgcolor=LightCoral>');
 					f.write('<img src="%s" width=%d height=%d>' % ('thumbnails/' + cat + '_' + name, width, height))
 					f.write('<br><small>%s</small>' % false_positive_labels[j][0]);
@@ -282,7 +285,8 @@ def create_results_webpage(train_image_paths, test_image_paths,
 						anti_aliasing=True, mode='wrap')
 
 					name = os.path.basename(thisExample)
-					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp, quality=100)
+					tmp_uint8 = tmp.astype(np.uint8)
+					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp_uint8, quality=100)
 					f.write('<td bgcolor=#FFBB55>');
 					f.write('<img src="%s" width=%d height=%d>' % ('thumbnails/' + cat + '_' + name, width, height));
 					f.write('<br><small>%s</small>' % false_negative_labels[j][0]);
