@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import numpy as np
 import os
+import argparse
 
 from helpers import get_image_paths
 from student import get_tiny_images, build_vocabulary, get_bags_of_words, \
@@ -56,13 +57,27 @@ def projSceneRecBoW():
     # Step 0: Set up parameters, category list, and image paths.
     # Uncomment various feature and classifier combinations to test them.
 
-    #FEATURE = 'tiny image'
-    #FEATURE = 'bag of words'
-    FEATURE = 'placeholder'
+    """
+    Reads in the data,
 
-    #CLASSIFIER = 'nearest neighbor'
-    #CLASSIFIER = 'support vector machine'
-    CLASSIFIER = 'placeholder'
+    Command line usage: python main.py [-a | --average_accuracy] -p | --pair <image pair name>
+
+    -a | --average_accuracy - flag - if specified, will compute your solution's
+    average accuracy on the (1) notre dame, (2) mt. rushmore, and (3) episcopal
+    guadi image pairs
+
+    -p | --pair - flag - required. specifies which image pair to match
+
+    """
+    # create the command line parser
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("-f", "--feature", default='placeholder', help="Either placeholder, tiny_image, or bag_of_words.")
+    parser.add_argument("-c", "--classifier", default='placeholder', help="Either placeholder, nearest_neighbor, or support_vector_machine.")
+
+    args = parser.parse_args()
+    FEATURE = args.feature
+    CLASSIFIER = args.classifier
 
     # This is the path the script will look at to load images from.
     data_path = '../data/'
@@ -105,14 +120,14 @@ def projSceneRecBoW():
 
     print('Using %s representation for images.' % FEATURE)
 
-    if FEATURE.lower() == 'tiny image':
+    if FEATURE.lower() == 'tiny_image':
         print('Loading tiny images...')
         # YOU CODE get_tiny_images (see student.py)
         train_image_feats = get_tiny_images(train_image_paths)
         test_image_feats  = get_tiny_images(test_image_paths)
         print('Tiny images loaded.')
 
-    elif FEATURE.lower() == 'bag of words':
+    elif FEATURE.lower() == 'bag_of_words':
         # Because building the vocabulary takes a long time, we save the generated
         # vocab to a file and re-load it each time to make testing faster. If
         # you need to re-generate the vocab (for example if you change its size
@@ -156,11 +171,11 @@ def projSceneRecBoW():
 
     print('Using %s classifier to predict test set categories.' % CLASSIFIER)
 
-    if CLASSIFIER.lower() == 'nearest neighbor':
+    if CLASSIFIER.lower() == 'nearest_neighbor':
         # YOU CODE nearest_neighbor_classify (see student.py)
         predicted_categories = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats)
 
-    elif CLASSIFIER.lower() == 'support vector machine':
+    elif CLASSIFIER.lower() == 'support_vector_machine':
         # YOU CODE svm_classify (see student.py)
         predicted_categories = svm_classify(train_image_feats, train_labels, test_image_feats)
 
