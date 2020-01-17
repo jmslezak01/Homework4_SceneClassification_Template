@@ -230,7 +230,7 @@ def create_results_webpage(train_image_paths, test_image_paths,
 						anti_aliasing=True, mode='wrap')
 
 					name = os.path.basename(thisExample)
-					tmp_uint8 = tmp.astype(np.uint8)
+					tmp_uint8 = (tmp * 255).astype(np.uint8)
 					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp_uint8, quality=100)
 					f.write('<td bgcolor=LightBlue>')
 					f.write('<img src="%s" width=%d height=%d>' % ('thumbnails/' + cat + '_' + name, width, height))
@@ -248,7 +248,7 @@ def create_results_webpage(train_image_paths, test_image_paths,
 						anti_aliasing=True, mode='wrap')
 
 					name = os.path.basename(thisExample)
-					tmp_uint8 = tmp.astype(np.uint8)
+					tmp_uint8 = (tmp * 255).astype(np.uint8)
 					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp_uint8, quality=100)
 					f.write('<td bgcolor=LightGreen>');
 					f.write('<img src="%s" width=%d height=%d>' % ('thumbnails/' + cat + '_' + name, width, height))
@@ -266,7 +266,7 @@ def create_results_webpage(train_image_paths, test_image_paths,
 						anti_aliasing=True, mode='wrap')
 
 					name = os.path.basename(thisExample)
-					tmp_uint8 = tmp.astype(np.uint8)
+					tmp_uint8 = (tmp * 255).astype(np.uint8)
 					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp_uint8, quality=100)
 					f.write('<td bgcolor=LightCoral>');
 					f.write('<img src="%s" width=%d height=%d>' % ('thumbnails/' + cat + '_' + name, width, height))
@@ -285,7 +285,7 @@ def create_results_webpage(train_image_paths, test_image_paths,
 						anti_aliasing=True, mode='wrap')
 
 					name = os.path.basename(thisExample)
-					tmp_uint8 = tmp.astype(np.uint8)
+					tmp_uint8 = (tmp * 255).astype(np.uint8)
 					skimage.io.imsave('results_webpage/thumbnails/' + cat + '_' + name, tmp_uint8, quality=100)
 					f.write('<td bgcolor=#FFBB55>');
 					f.write('<img src="%s" width=%d height=%d>' % ('thumbnails/' + cat + '_' + name, width, height));
