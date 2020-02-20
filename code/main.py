@@ -8,7 +8,7 @@ from student import get_tiny_images, build_vocabulary, get_bags_of_words, \
     svm_classify, nearest_neighbor_classify
 from create_results_webpage import create_results_webpage
 
-def projSceneRecBoW():
+def projSceneRecBoW(feature='placeholder', classifier='placeholder'):
     '''
     For this project, you will need to report performance for three
     combinations of features / classifiers. We recommend that you code them in
@@ -55,29 +55,8 @@ def projSceneRecBoW():
     '''
 
     # Step 0: Set up parameters, category list, and image paths.
-    # Uncomment various feature and classifier combinations to test them.
-
-    """
-    Reads in the data,
-
-    Command line usage: python main.py [-a | --average_accuracy] -p | --pair <image pair name>
-
-    -a | --average_accuracy - flag - if specified, will compute your solution's
-    average accuracy on the (1) notre dame, (2) mt. rushmore, and (3) episcopal
-    guadi image pairs
-
-    -p | --pair - flag - required. specifies which image pair to match
-
-    """
-    # create the command line parser
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument("-f", "--feature", default='placeholder', help="Either placeholder, tiny_image, or bag_of_words.")
-    parser.add_argument("-c", "--classifier", default='placeholder', help="Either placeholder, nearest_neighbor, or support_vector_machine.")
-
-    args = parser.parse_args()
-    FEATURE = args.feature
-    CLASSIFIER = args.classifier
+    FEATURE = feature
+    CLASSIFIER = classifier
 
     # This is the path the script will look at to load images from.
     data_path = '../data/'
@@ -210,4 +189,24 @@ def projSceneRecBoW():
                             predicted_categories)
 
 if __name__ == '__main__':
-    projSceneRecBoW()
+    '''
+    Command line usage:
+    python main.py [-f | --feature <representation to use>] [-c | --classifier <classifier method>]
+
+    -f | --feature - flag - if specified, will perform scene recognition using
+    either placeholder (placeholder), tiny image (tiny_image), or bag of words
+    (bag_of_words) to represent scenes
+
+    -c | --classifier - flag - if specified, will perform scene recognition using
+    either placeholder (placeholder), nearest neighbor (nearest_neighbor), or
+    support vector machine (support_vector_machine) as the classifier
+
+    '''
+    # create the command line parser
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('-f', '--feature', default='placeholder', help='Either placeholder, tiny_image, or bag_of_words')
+    parser.add_argument('-c', '--classifier', default='placeholder', help='Either placeholder, nearest_neighbor, or support_vector_machine')
+
+    args = parser.parse_args()
+    projSceneRecBoW(args.feature, args.classifier)
