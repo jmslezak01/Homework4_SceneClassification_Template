@@ -256,7 +256,7 @@ def classify(train_feats, train_labels, test_feat)
     # Train classification hyperplane
     weights, bias = train_linear_classifier(train_feats, train_label)
     # Compute distance from hyperplane
-    test_score = weights * test_feats + bias
+    test_score = weights * test_feat + bias
 
     return 1 if test_score > 0 else -1
 \end{python}
