@@ -135,7 +135,8 @@
     Why might this affect classification accuracy?
 
     \item
-    Given the situation, describe \emph{two} methods to improve classification accuracy, and explain why they would help.
+    Given the situation, describe \emph{two} methods to improve classification accuracy, and explain why they would help.\\ 
+    \emph{These can be for k-means, or otherwise.}
 
 \end{enumerate}
 
@@ -162,7 +163,7 @@
 \item Describe an example scenario for each of these cases.
 \item Describe a modification or additional algorithm which might\\overcome the disadvantage.
 
-\item How might we evaluate whether bag of words is a good model?
+\item How might we determine whether bag of words is a good model?
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{A3:} Your answer here.
@@ -256,7 +257,7 @@ def classify(train_feats, train_labels, test_feat)
     # Train classification hyperplane
     weights, bias = train_linear_classifier(train_feats, train_label)
     # Compute distance from hyperplane
-    test_score = weights * test_feat + bias
+    test_score = weights * test_feats + bias
 
     return 1 if test_score > 0 else -1
 \end{python}
