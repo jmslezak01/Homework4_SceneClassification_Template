@@ -104,11 +104,11 @@ def build_vocabulary(image_paths, vocab_size):
     absolutely massive vocabulary. That would make matching inefficient AND
     inaccurate! So we use K Means clustering to find a much smaller (vocab_size)
     number of representative points. We recommend using sklearn.cluster.KMeans
-    to do this. Note that this can take a VERY LONG TIME to complete (upwards
-    of ten minutes for large numbers of features and large max_iter), so set
-    the max_iter argument to something low (we used 100) and be patient. You
-    may also find success setting the "tol" argument (see documentation for
-    details)
+    (or sklearn.cluster.MiniBatchKMeans if KMeans takes to long for you) to do this. 
+    Note that this can take a VERY LONG TIME to complete (upwards of ten minutes 
+    for large numbers of features and large max_iter), so set the max_iter argument
+    to something low (we used 100) and be patient. You may also find success setting
+    the "tol" argument (see documentation for details)
     '''
 
     #TODO: Implement this function!
