@@ -261,6 +261,49 @@ def classify(train_feats, train_labels, test_feat)
 
     return 1 if test_score > 0 else -1
 \end{python}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\paragraph{Q6:} When performing HOG, the parameters such as pixels per cell and cells per block can greatly impact the resulting feature descriptor, thereby affecting your models' performance on a classification task. Please answer the following questions using this diagram for reference.
+
+\includegraphics{hog-image.png}
+
+\begin{enumerate}[(a)]
+\item Given an image of dimmensions 36x36, calculate the number of cells, blocks, and feature vector size that will occur if performing hog with the following parameters.
+
+Scenario 1: pixels per cell = 4x4, cells per block = 4x4 (like your implementation of SIFT!)
+Number of cells: _____________
+Number of blocks: _____________
+Dimensions of resulting feature descriptor: _____________
+
+Scenario 2: pixels per cell = 8x8, cells per block = 2x2
+Number of cells: _____________
+Number of blocks: _____________
+Dimensions of resulting feature descriptor: _____________
+
+
+\item What are the pros and cons of the two parameter combinations? Which might you expect to have better performance?
+\end{enumerate}
+
+\emph{Please answer overleaf.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\paragraph{A6:} Your answer here.
+% Uncomment the stencil below and fill in your solution.
+
+% \begin{enumerate}[(a)]
+
+% \item 
+
+% \item  
+
+% \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
