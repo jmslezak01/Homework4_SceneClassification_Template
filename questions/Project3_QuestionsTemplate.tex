@@ -223,7 +223,7 @@ Evaluating whether a model is good can have huge impacts in deploying technologi
 \pagebreak
 \paragraph{Q5:} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
 
-Below, we provide pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please convert this into a multi-class classifier. 
+Below, we provide pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please edit the pseudo-code to convert this into a multi-class classifier. 
 
 \emph{Hints:} See slides in supervised learning crash course deck, plus your own research. You can take either the one vs.~all (or one vs.~others) approach or the one vs.~one approach in the slides; please declare which approach you take.
 
@@ -261,6 +261,62 @@ def classify(train_feats, train_labels, test_feat)
 
     return 1 if test_score > 0 else -1
 \end{python}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\paragraph{Q6:} When performing HOG, the parameters such as pixels per cell and cells per block can greatly impact the resulting feature descriptor, thereby affecting your models' performance on a classification task. Please answer the following questions using this diagram for reference.
+
+\includegraphics[width=\textwidth]{hog-image.png}
+
+\emph{Note:} There is a feature descriptor for each block. Since HOG outputs a histogram of size 9 per cell, you can append those together to get the feature descriptor for each block. As a result of this, if you have (z,z) cells per block, the feature descriptor for each block will be of size z*z*9.
+
+\emph{Note:} The blocks are overlapping as displayed in the diagram.
+
+\begin{enumerate}[(a)]
+\item Given an image of dimmensions 72x72, calculate the number of cells, blocks, and feature vector size that will occur if performing hog with the following parameters.
+
+Scenario 1: pixels per cell = 4x4, cells per block = 4x4 (like your implementation of SIFT!)
+\\ 
+Number of cells: 
+\\
+Number of blocks: 
+\\
+Dimensions of resulting feature descriptor: 
+\\
+
+Scenario 2: pixels per cell = 8x8, cells per block = 2x2
+\\ 
+Number of cells:
+\\
+Number of blocks: 
+\\
+Dimensions of resulting feature descriptor: 
+
+
+\item What are the pros and cons of the two parameter combinations? Which might you expect to have better performance?
+
+\emph{Note:} You might find it useful to look at this paper (http://lear.inrialpes.fr/people/dalal/NavneetDalalThesis.pdf) on pages 53, 55
+\end{enumerate}
+
+\emph{Please answer overleaf.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\paragraph{A6:} Your answer here.
+% Uncomment the stencil below and fill in your solution.
+
+% \begin{enumerate}[(a)]
+
+% \item 
+
+% \item  
+
+% \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
