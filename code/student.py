@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib
+import time
 from skimage.io import imread
 from skimage.color import rgb2grey
 from skimage.feature import hog
@@ -112,6 +113,11 @@ def build_vocabulary(image_paths, vocab_size):
     '''
 
     #TODO: Implement this function!
+    
+    num_imgs = len(image_paths)
+    
+    for i in progressbar(range(num_imgs), "Loading ...", num_imgs):
+        pass
 
     return np.array([])
 
