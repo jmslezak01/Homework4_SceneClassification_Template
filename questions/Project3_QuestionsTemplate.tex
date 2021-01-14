@@ -271,7 +271,9 @@ def classify(train_feats, train_labels, test_feat)
 
 \includegraphics[width=\textwidth]{hog-image.png}
 
-\emph{Note:} The blocks are overlapping and formed through a sliding-door like action.
+\emph{Note:} There is a feature descriptor for each block. Since HOG outputs a histogram of size 9 per cell, you can append those together to get the feature descriptor for each block. As a result of this, if you have (z,z) cells per block, the feature descriptor for each block will be of size z*z*9.
+
+\emph{Note:} The blocks are overlapping as displayed in the diagram.
 
 \begin{enumerate}[(a)]
 \item Given an image of dimmensions 72x72, calculate the number of cells, blocks, and feature vector size that will occur if performing hog with the following parameters.
