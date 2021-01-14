@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib
 import time
+from helpers import progressbar
 from skimage.io import imread
 from skimage.color import rgb2grey
 from skimage.feature import hog
