@@ -8,7 +8,9 @@ from student import get_tiny_images, build_vocabulary, get_bags_of_words, \
     svm_classify, nearest_neighbor_classify
 from create_results_webpage import create_results_webpage
 
-def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab='True'):
+
+def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab='True',
+                    data_path='../data/'):
     '''
     For this project, you will need to report performance for three
     combinations of features / classifiers. We recommend that you code them in
@@ -57,9 +59,6 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab=
     # Step 0: Set up parameters, category list, and image paths.
     FEATURE = feature
     CLASSIFIER = classifier
-
-    # This is the path the script will look at to load images from.
-    data_path = '../data/'
 
     # This is the list of categories / directories to use. The categories are
     # somewhat sorted by similarity so that the confusion matrix looks more
@@ -199,7 +198,10 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab=
 if __name__ == '__main__':
     '''
     Command line usage:
-    python main.py [-f | --feature <representation to use>] [-c | --classifier <classifier method>]
+    python main.py [-f | --feature <representation to use>]
+                   [-c | --classifier <classifier method>]
+                   [-v | --load_vocab <boolean>]
+                   [-d | --data <data_filepath>]
 
     -f | --feature - flag - if specified, will perform scene recognition using
     either placeholder (placeholder), tiny image (tiny_image), or bag of words
@@ -212,6 +214,9 @@ if __name__ == '__main__':
     -v | --load_vocab - flag - Boolean; if (True), loads the existing vocabulary 
     stored in vocab.npy (under <ROOT>/code), else if (False), creates a new one.
     default=(True).
+    
+    -d | --data - flag - if specified, will use the provided file path as the
+    location to the data directory. Defaults to ../data
     '''
     # create the command line parser
     parser = argparse.ArgumentParser()
@@ -219,6 +224,7 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--feature', default='placeholder', help='Either placeholder, tiny_image, or bag_of_words')
     parser.add_argument('-c', '--classifier', default='placeholder', help='Either placeholder, nearest_neighbor, or support_vector_machine')
     parser.add_argument('-v', '--load_vocab', default='True', help='Boolean for either loading existing vocab (True) or creating new one (False)')
+    parser.add_argument('-d', '--data', default='../data', help='Filepath to the data directory')
 
     args = parser.parse_args()
-    projSceneRecBoW(args.feature, args.classifier, args.load_vocab)
+    projSceneRecBoW(args.feature, args.classifier, args.load_vocab, args.data)
