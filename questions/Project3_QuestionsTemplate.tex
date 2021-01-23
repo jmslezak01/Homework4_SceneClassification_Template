@@ -51,6 +51,7 @@
 \setlist[enumerate]{topsep=0pt}
 % python code format: https://github.com/olivierverdier/python-latex-highlighting
 \usepackage{pythonhighlight}
+\definecolor{lightgray}{RGB}{230,230,230}
 
 \frenchspacing
 \setlength{\parindent}{0cm} % Default is 15pt.
@@ -269,16 +270,18 @@ def classify(train_feats, train_labels, test_feat)
 
 \paragraph{Q6:} When performing HOG, the parameters such as pixels per cell and cells per block can greatly impact the resulting feature descriptor, thereby affecting your models' performance on a classification task. Please answer the following questions using this diagram for reference.
 
-\includegraphics[width=\textwidth]{hog-diagram.png}
+\begin{center}
+    \includegraphics[width=11cm]{hog-diagram.png}
+\end{center}
 
-\emph{Note:} There is a feature descriptor for each block. Since HOG outputs a histogram of size 9 per cell, you can append those together to get the feature descriptor for each block. As a result of this, if you have (z,z) cells per block, the feature descriptor for each block will be of size z*z*9.
+\emph{Note: There is a feature descriptor for each block. Since HOG outputs a histogram of size 9 per cell, you can append those together to get the feature descriptor for each block. As a result of this, if you have (z,z) cells per block, the feature descriptor for each block will be of size z*z*9. Also, the blocks are overlapping as displayed in the diagram.}
 
-\emph{Note:} The blocks are overlapping as displayed in the diagram.
+\emph{Note: You may find it useful to look at the thesis of Navneet Dalal (who is the inventor of HOG) for a deeper dive into this topic. \href{http://lear.inrialpes.fr/people/dalal/NavneetDalalThesis.pdf}{[Link to thesis]} (pages 39, 41 in section 4.3 specifically).}
 
 \begin{enumerate}[(a)]
-\item Given an image of dimmensions 72x72, calculate the number of cells, blocks, and feature vector size that will occur if performing hog with the following parameters.
+\item Given an image of dimmensions \colorbox{lightgray}{72x72}, calculate the number of cells, blocks, and feature vector size that will occur if performing hog with the following parameters.
 
-Scenario 1: pixels per cell = 4x4, cells per block = 4x4 (like your implementation of SIFT!)
+Scenario 1: Given, pixels per cell = \colorbox{lightgray}{4x4}, cells per block = \colorbox{lightgray}{4x4} (\emph{like your implementation of SIFT!}). Calculate:
 \\ 
 Number of cells: 
 \\
@@ -287,7 +290,7 @@ Number of blocks:
 Dimensions of resulting feature descriptor: 
 \\
 
-Scenario 2: pixels per cell = 8x8, cells per block = 2x2
+Scenario 2: Given, pixels per cell = \colorbox{lightgray}{8x8}, cells per block = \colorbox{lightgray}{2x2}. Calculate:
 \\ 
 Number of cells:
 \\
@@ -298,7 +301,6 @@ Dimensions of resulting feature descriptor:
 
 \item What are the pros and cons of the two parameter combinations? Which might you expect to have better performance?
 
-\emph{Note:} You might find it useful to look at this paper (http://lear.inrialpes.fr/people/dalal/NavneetDalalThesis.pdf) on pages 39, 41
 \end{enumerate}
 
 \emph{Please answer overleaf.}
