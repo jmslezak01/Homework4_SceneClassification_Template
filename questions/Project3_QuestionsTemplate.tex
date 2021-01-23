@@ -269,7 +269,7 @@ def classify(train_feats, train_labels, test_feat)
 
 \paragraph{Q6:} When performing HOG, the parameters such as pixels per cell and cells per block can greatly impact the resulting feature descriptor, thereby affecting your models' performance on a classification task. Please answer the following questions using this diagram for reference.
 
-\includegraphics[width=\textwidth]{hog-image.png}
+\includegraphics[width=\textwidth]{hog-diagram.png}
 
 \emph{Note:} There is a feature descriptor for each block. Since HOG outputs a histogram of size 9 per cell, you can append those together to get the feature descriptor for each block. As a result of this, if you have (z,z) cells per block, the feature descriptor for each block will be of size z*z*9.
 
