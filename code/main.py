@@ -8,7 +8,9 @@ from student import get_tiny_images, build_vocabulary, get_bags_of_words, \
     svm_classify, nearest_neighbor_classify
 from create_results_webpage import create_results_webpage
 
-def projSceneRecBoW(feature='placeholder', classifier='placeholder'):
+
+def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab='True',
+                    data_path='../data/'):
     '''
     For this project, you will need to report performance for three
     combinations of features / classifiers. We recommend that you code them in
@@ -57,9 +59,6 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder'):
     # Step 0: Set up parameters, category list, and image paths.
     FEATURE = feature
     CLASSIFIER = classifier
-
-    # This is the path the script will look at to load images from.
-    data_path = '../data/'
 
     # This is the list of categories / directories to use. The categories are
     # somewhat sorted by similarity so that the confusion matrix looks more
@@ -110,10 +109,16 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder'):
         # Because building the vocabulary takes a long time, we save the generated
         # vocab to a file and re-load it each time to make testing faster. If
         # you need to re-generate the vocab (for example if you change its size
-        # or the length of your feature vectors), simply delete the vocab.npy
-        # file and re-run main.py
-        if not os.path.isfile('vocab.npy'):
-            print('No existing visual word vocabulary found. Computing one from training images.')
+        # or the length of your feature vectors), set --load_vocab to False.
+        # This will re-compute the vocabulary.
+        if load_vocab == 'True':
+            # check if vocab exists
+            if not os.path.isfile('vocab.npy'):
+                print('IOError: No existing visual word vocabulary found. Please set --load_vocab to False.')
+                exit()
+
+        elif load_vocab == 'False':
+            print('Computing vocab from training images.')
 
             #Larger values will work better (to a point), but are slower to compute
             vocab_size = 200
@@ -121,6 +126,8 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder'):
             # YOU CODE build_vocabulary (see student.py)
             vocab = build_vocabulary(train_image_paths, vocab_size)
             np.save('vocab.npy', vocab)
+        else:
+            raise ValueError('Unknown load flag! Should be boolean.')
 
         # YOU CODE get_bags_of_words.m (see student.py)
         train_image_feats = get_bags_of_words(train_image_paths)
@@ -191,7 +198,10 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder'):
 if __name__ == '__main__':
     '''
     Command line usage:
-    python main.py [-f | --feature <representation to use>] [-c | --classifier <classifier method>]
+    python main.py [-f | --feature <representation to use>]
+                   [-c | --classifier <classifier method>]
+                   [-v | --load_vocab <boolean>]
+                   [-d | --data <data_filepath>]
 
     -f | --feature - flag - if specified, will perform scene recognition using
     either placeholder (placeholder), tiny image (tiny_image), or bag of words
@@ -201,12 +211,20 @@ if __name__ == '__main__':
     either placeholder (placeholder), nearest neighbor (nearest_neighbor), or
     support vector machine (support_vector_machine) as the classifier
 
+    -v | --load_vocab - flag - Boolean; if (True), loads the existing vocabulary 
+    stored in vocab.npy (under <ROOT>/code), else if (False), creates a new one.
+    default=(True).
+    
+    -d | --data - flag - if specified, will use the provided file path as the
+    location to the data directory. Defaults to ../data
     '''
     # create the command line parser
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-f', '--feature', default='placeholder', help='Either placeholder, tiny_image, or bag_of_words')
     parser.add_argument('-c', '--classifier', default='placeholder', help='Either placeholder, nearest_neighbor, or support_vector_machine')
+    parser.add_argument('-v', '--load_vocab', default='True', help='Boolean for either loading existing vocab (True) or creating new one (False)')
+    parser.add_argument('-d', '--data', default='../data', help='Filepath to the data directory')
 
     args = parser.parse_args()
-    projSceneRecBoW(args.feature, args.classifier)
+    projSceneRecBoW(args.feature, args.classifier, args.load_vocab, args.data)
