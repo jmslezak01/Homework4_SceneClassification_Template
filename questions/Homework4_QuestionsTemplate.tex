@@ -83,7 +83,7 @@ should be on this page
 
 \date{}
 
-\title{\vspace{-2cm}Project 3 Questions}
+\title{\vspace{-2cm}Homework 4 Questions}
 
 
 \begin{document}
@@ -208,7 +208,7 @@ should be on this page
 
 Data bias affects machine learning, and recent national news has highlighted data bias in object detection. \href{https://www.vox.com/future-perfect/2019/3/5/18251924/self-driving-car-racial-bias-study-autonomous-vehicle-dark-skin}{In one case}, researchers discovered that current pedestrian detection models identified darker-skinned pedestrians with 5\% less accuracy than lighter-skinned pedestrians. The researchers investigate multiple reasons for this inaccuracy, but one reason could be that the training dataset had 29\% darker-skinned and 71\% lighter-skinned labeled pedestrians. While measuring this difference in the data might be simple for pedestrians, other data biases can be harder to describe.
 
-In Project 4, we will train a scene recognition model using data from Lazebnik et al.~2006. Please review its data to check for biases: observe image samples in the data/train and data/test directories and consider their class labels.
+In Homework 4, we will train a scene recognition model using data from Lazebnik et al.~2006. Please review its data to check for biases: observe image samples in the data/train and data/test directories and consider their class labels.
 
 \begin{enumerate}[(a)]
 \item Does this dataset contain potentially harmful biases? If so, describe them and why they might be harmful. (3--4 sentences)
@@ -294,7 +294,7 @@ def classify(train_feats, train_labels, test_feat)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 
-\paragraph{Q6:} In Project 3, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at corners) to create visual words.
+\paragraph{Q6:} In Homework 4, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at corners) to create visual words.
 
 HOG creates a feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. 
 
