@@ -307,7 +307,7 @@ HOG creates a feature descriptor per image `block'. Each block is split into `ce
 When using HOG, the parameters such as pixels per cell and cells per block impact the resulting feature descriptor and so our performance on a classification task.
 
 \begin{enumerate}[(a)]
-\item Given a \colorbox{lightgray}{$72\times72$} image, calculate the number of cells, blocks, and feature vector size that will occur when we extract HOG features with the following parameters.
+\item Given a \colorbox{lightgray}{$72\times72$} image, calculate the number of cells, blocks, and feature vector size that will occur when we extract HOG features with the following parameters using maximum overlap between blocks.
 
 Scenario 1: Pixels per cell = \colorbox{lightgray}{$4\times4$}, cells per block = \colorbox{lightgray}{$4\times4$} % (\emph{like in SIFT!}). 
 \\
