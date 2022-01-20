@@ -8,6 +8,37 @@ from skimage.feature import hog
 from skimage.transform import resize
 from scipy.spatial.distance import cdist
 
+'''
+READ FIRST: Note for Relation Between Functions
+
+Functions in this file can be classified into 3 groups based on their roles:
+Group 1: feature-extracting functions
+        a) get_tiny_images: 
+            size down the images defined by its input; 
+            the output tiny images are used as features
+        b) get_bags_of_words: 
+            turn each of the images defined by its input to a histogram of oriented images; 
+            the output histograms are used as features
+Group 2: supplementary function for get_bags_of_words (the second function in Group 1)
+        build_vocabulary:
+            turn the images defined by its input into a vocabulary with customable size;
+            the output vocabulary are fed into get_bags_of_words
+Group 3: classification functions
+        a) svm_classify
+            implement many-versus-one linear SVM classifier
+        b) nearest_neighbor_classify
+            implement nearest-neighbor classifier
+
+In main.py, we will run different combinations of functions in Group 1 and Group 3, e.g.
+    i) get_tiny_images + nearest_neighbor_classify    
+    ii) get_bags_of_words + nearest_neighbor_classify
+    iii) get_bags_of_words + svm_classify
+    ...
+    to do scene classification
+
+    When using get_bags_of_words, choose to load vocab (use the existing trained vocab) or not (run build_vocabulary)
+'''
+
 def get_tiny_images(image_paths):
     '''
     This feature is inspired by the simple tiny images used as features in
