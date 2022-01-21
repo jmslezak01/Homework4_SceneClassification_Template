@@ -18,7 +18,7 @@ Group 1: feature-extracting functions
             the output tiny images are used as features
         b) get_bags_of_words: 
             read in the images from the input paths and 
-            turn each of the images into a histogram of oriented gradiengts (hog); 
+            turn each of the images into a histogram of oriented gradients (hog); 
             the output histograms are used as features
 Group 2: supplementary function for get_bags_of_words (the second function in Group 1)
         build_vocabulary:
