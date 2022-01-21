@@ -9,34 +9,39 @@ from skimage.transform import resize
 from scipy.spatial.distance import cdist
 
 '''
-READ FIRST: Note for Relation Between Functions
+READ FIRST: Relationship Between Functions
 
 Functions in this file can be classified into 3 groups based on their roles:
 Group 1: feature-extracting functions
         a) get_tiny_images: 
-            size down the images defined by its input; 
+            read in the images from the input paths and size down the images; 
             the output tiny images are used as features
         b) get_bags_of_words: 
-            turn each of the images defined by its input to a histogram of oriented images; 
+            read in the images from the input paths and 
+            turn each of the images into a histogram of oriented gradiengts (hog); 
             the output histograms are used as features
 Group 2: supplementary function for get_bags_of_words (the second function in Group 1)
         build_vocabulary:
-            turn the images defined by its input into a vocabulary with customable size;
+            read in the images from the input paths and build a vocabulary using the images using K-Means;
             the output vocabulary are fed into get_bags_of_words
+            (Only need to run this function in main.py once)
 Group 3: classification functions
-        a) svm_classify
-            implement many-versus-one linear SVM classifier
-        b) nearest_neighbor_classify
+        a) nearest_neighbor_classify
             implement nearest-neighbor classifier
+        b) svm_classify
+            implement many-versus-one linear SVM classifier
 
 In main.py, we will run different combinations of functions in Group 1 and Group 3, e.g.
     i) get_tiny_images + nearest_neighbor_classify    
     ii) get_bags_of_words + nearest_neighbor_classify
     iii) get_bags_of_words + svm_classify
-    ...
-    to do scene classification
+    to do scene classification.
+    We recommend to implement the functions in the following order:
+        get_tiny_images, nearest_neighbor_classify, THEN run (i) to see the performance;
+        get_bags_of_words, THEN run (ii) to see the performance.
+        svm_classify, THEN run (iii) to see the performance.
 
-    When using get_bags_of_words, choose to load vocab (use the existing trained vocab) or not (run build_vocabulary)
+Read main.py for more details.
 '''
 
 def get_tiny_images(image_paths):
