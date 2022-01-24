@@ -3,7 +3,7 @@ import matplotlib
 import time
 from helpers import progressbar
 from skimage.io import imread
-from skimage.color import rgb2grey
+from skimage.color import rgb2gray
 from skimage.feature import hog
 from skimage.transform import resize
 from scipy.spatial.distance import cdist
