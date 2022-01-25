@@ -81,7 +81,7 @@ def get_tiny_images(image_paths):
 
 def build_vocabulary(image_paths, vocab_size):
     '''
-    This function should sample HOG descriptors from the training images,
+    This function samples HOG descriptors from the training images,
     cluster them with kmeans, and then return the cluster centers.
 
     Inputs:
@@ -97,7 +97,7 @@ def build_vocabulary(image_paths, vocab_size):
     The documentation is available here:
     http://scikit-image.org/docs/dev/api/skimage.feature.html#skimage.feature.hog
 
-    However, the documentation is a bit confusing, so we will highlight some
+    We will highlight some
     important arguments to consider:
         cells_per_block: The hog function breaks the image into evenly-sized
             blocks, which are further broken down into cells, each made of
@@ -124,18 +124,12 @@ def build_vocabulary(image_paths, vocab_size):
 
     With feature_vector=True, hog() will return one long np array containing every
     cell histogram concatenated end to end. We want to break this up into a
-    list of (z*z*9) block feature vectors. We can do this using a really nifty numpy
+    list of (z*z*9) block feature vectors. We can do this using a numpy
     function. When using np.reshape, you can set the length of one dimension to
     -1, which tells numpy to make this dimension as big as it needs to be to
     accomodate to reshape all of the data based on the other dimensions. So if
     we want to break our long np array (long_boi) into rows of z*z*9 feature
     vectors we can use small_bois = long_boi.reshape(-1, z*z*9).
-
-    The number of feature vectors that come from this reshape is dependent on
-    the size of the image you give to hog(). It will fit as many blocks as it
-    can on the image. You can choose to resize (or crop) each image to a consistent size
-    (therefore creating the same number of feature vectors per image), or you
-    can find feature vectors in the original sized image.
 
     ONE MORE THING
     If we returned all the features we found as our vocabulary, we would have an
@@ -243,19 +237,14 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats)
         for the corresponding image in test_image_feats
 
     The simplest implementation of k-nearest-neighbors gives an even vote to
-    all k neighbors found - that is, each neighbor in category A counts as one
+    all k neighbors found - each neighbor in category A counts as one
     vote for category A, and the result returned is equivalent to finding the
     mode of the categories of the k nearest neighbors. A more advanced version
     uses weighted votes where closer matches matter more strongly than far ones.
     This is not required, but may increase performance.
 
-    Be aware that increasing k does not always improve performance - even
-    values of k may require tie-breaking which could cause the classifier to
-    arbitrarily pick the wrong class in the case of an even split in votes.
-    Additionally, past a certain threshold the classifier is considering so
-    many neighbors that it may expand beyond the local area of logical matches
-    and get so many garbage votes from a different category that it mislabels
-    the data. Play around with a few values and see what changes.
+    Be aware that increasing k does not always improve performance. Play around
+    with a few values and see what changes.
 
     Useful functions:
         scipy.spatial.distance.cdist, np.argsort, scipy.stats.mode
