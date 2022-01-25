@@ -64,15 +64,17 @@
 \lfoot{\textcolor{red}{Only 
 \ifcase\thepage
 \or instructions
-\or A1 answers
-\or Q2 and A2 answers
-\or Q3 and A3 answers
+\or A1
+\or A2
+\or Q1
+\or A1
+\or A2
+\or A3
 \or Q4
-\or A4 answers
+\or A4
 \or Q5
-\or A5 answers
-\or Q6
-\or A6 answers
+\or Q5
+\or A5
 \or feedback
 \else
 EXTRA PAGE ADDED
@@ -93,14 +95,35 @@ should be on this page
 
 \section*{Instructions}
 \begin{itemize}
-  \item 6 questions.
+  \item 2 ethical implications questions.
+  \item 5 technical questions.
   \item Write code where appropriate; feel free to include images or equations.
   \item Please make this document anonymous.
   \item This assignment is \textbf{fixed length}, and the pages have been assigned for you in Gradescope. As a result, \textbf{please do NOT add any new pages}. We will provide ample room for you to answer the questions. If you \emph{really} wish for more space, please add a page \emph{at the end of the document}.
   \item \textbf{We do NOT expect you to fill up each page with your answer.} Some answers will only be a few sentences long, and that is okay.
 \end{itemize}
+\pagebreak
+\section*{Ethical Implications}
+\paragraph{Q1:} Models can only perform as well as the data we give them. One specific concern is that high overall accuracy can mask poor performance in subgroups. Joy Buolamwini's 2018 paper, \href{http://gendershades.org/overview.html}{Gender Shades} found that while Microsoft's gender classification algorithm achieved 94\% overall accuracy, it achieved 100\% accuracy on white male faces and only 79.2\% accuracy on darker female faces. In response to the report, Microsoft \href{https://blogs.microsoft.com/ai/gender-skin-tone-facial-recognition-improvement/}{significantly improved} their algorithm's performance by collecting and using more representative training data.  
 
-\section*{Questions}
+In this assignment, we train a scene recognition model using data from Lazebnik et al. 2006. It is impossible to completely mitigate biases in a dataset. Please review the data to check for potential biases: look at images in the data/train and data/test directories and consider their class labels.
+
+Please list at least three potential biases in the dataset. If the outdoor images in the dataset were used to train a model for object recognition for a self-driving car, what are some consequences that could arise as a result of these biases? [3-4 sentences]
+
+\paragraph{A1:} Your answer here
+
+\pagebreak
+ 
+\paragraph{Q2:}  It can be hard to find and collect representative data. One approach that companies and researchers have used is web scraping, which pulls data from different websites to easily create large datasets. This practice has come under increasing scrutiny, however. In 2021, France became the latest country to find that Clearview AI, which operates a facial recognition platform for law enforcement use, \href{https://techcrunch.com/2021/12/16/clearview-gdpr-breaches-france/}{violated privacy laws} by scraping 10 billion images of people's faces from Facebook, YouTube, and other websites without their consent.
+
+Given your answer to the previous question, please find additional scene data that could be used in conjunction with and fills some of the gaps in the Lazebnik et al. 2006 dataset. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google} and \href{https://www.kaggle.com}{Kaggle}. 
+
+Please provide a link to your dataset, and describe how it addresses some of the gaps in the project dataset and any limitations of the new data. How was this new data collected? How was the Lazebnik et al. 2006 dataset collected? If you had to collect new scene data yourself in the real world, how would you do it? [6-7 sentences]
+
+\paragraph{A2:} Your answer here
+\pagebreak
+ 
+\section*{Technical Questions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -204,51 +227,7 @@ should be on this page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q4:} Goal: Recognize a biased dataset and understand how classifying data affects the output and outcome of computer vision machine learning models.
-
-Data bias affects machine learning, and recent national news has highlighted data bias in object detection. \href{https://www.vox.com/future-perfect/2019/3/5/18251924/self-driving-car-racial-bias-study-autonomous-vehicle-dark-skin}{In one case}, researchers discovered that current pedestrian detection models identified darker-skinned pedestrians with 5\% less accuracy than lighter-skinned pedestrians. The researchers investigate multiple reasons for this inaccuracy, but one reason could be that the training dataset had 29\% darker-skinned and 71\% lighter-skinned labeled pedestrians. While measuring this difference in the data might be simple for pedestrians, other data biases can be harder to describe.
-
-In Homework 4, we will train a scene recognition model using data from Lazebnik et al.~2006. Please review its data to check for biases: observe image samples in the data/train and data/test directories and consider their class labels.
-
-\begin{enumerate}[(a)]
-\item Does this dataset contain potentially harmful biases? If so, describe them and why they might be harmful. (3--4 sentences)
-\end{enumerate}
-
- In many cases these data sets are collected by graduate students and meant to be used for academic research. 
-
-\begin{enumerate}[(b)]
-\item What implications does this have if other organizations use these datasets for their models? Describe an application that uses this scene data in an unanticipated way. How might this reveal other overlooked biases? (3--4 sentences)
-\end{enumerate}
-
-Please read the following two short articles: \href{https://www.theverge.com/2019/6/11/18661128/ai-object-recognition-algorithms-bias-worse-household-items-lower-income-countries}{Article 1} and \href{https://arxiv.org/pdf/1711.08536.pdf}{Article 2}.
-
-\begin{enumerate}[(c)]
-\item Do these articles change your answers? Why or why not? (2--3 sentences)
-\end{enumerate}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-\paragraph{A4:} Your answer here.
-% Uncomment the stencil below and fill in your solution.
-
-% \begin{enumerate}[(a)]
-
-% \item 
-
-% \item 
-
-% \item 
-
-% \end{enumerate}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-\paragraph{Q5:} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
+\paragraph{Q4:} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
 
 Below, we provide pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please edit the pseudo-code to convert this into a multi-class classifier. 
 
@@ -266,7 +245,7 @@ Below, we provide pseudocode for a linear classifier. It trains a model on a tra
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\paragraph{A5:} Your answer here.
+\paragraph{A4:} Your answer here.
 
 \begin{python}
 # Inputs
@@ -298,7 +277,7 @@ def classify(train_feats, train_labels, test_feat)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 
-\paragraph{Q6:} In Homework 4, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at corners) to create visual words.
+\paragraph{Q5:} In Homework 4, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at corners) to create visual words.
 
 HOG creates a feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. 
 
@@ -346,7 +325,7 @@ Dimensions of resulting feature descriptor:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\paragraph{A6:} Your answer here.
+\paragraph{A5:} Your answer here.
 % Uncomment the stencil below and fill in your solution.
 
 % a)
