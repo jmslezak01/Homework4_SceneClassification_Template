@@ -95,7 +95,7 @@ should be on this page
 
 \section*{Instructions}
 \begin{itemize}
-  \item 2 ethical implications questions, which will be expanded on in discussion sections.
+  \item 2 socially-responsible computing questions, which will be expanded on in discussion sections.
   \item 5 technical questions.
   \item Write code where appropriate; feel free to include images or equations.
   \item Please make this document anonymous.
@@ -103,27 +103,32 @@ should be on this page
   \item \textbf{We do NOT expect you to fill up each page with your answer.} Some answers will only be a few sentences long, and that is okay.
 \end{itemize}
 \pagebreak
-\section*{Ethical Implications}
-\paragraph{Q1:} Models can only perform as well as the data we give them. One specific concern is that high overall accuracy can mask poor performance in subgroups. Joy Buolamwini's 2018 paper, \href{http://gendershades.org/overview.html}{Gender Shades} found that while Microsoft's gender classification algorithm achieved 94\% overall accuracy, it achieved 100\% accuracy on white male faces and only 79.2\% accuracy on darker female faces. In response to the report, Microsoft \href{https://blogs.microsoft.com/ai/gender-skin-tone-facial-recognition-improvement/}{significantly improved} their algorithm's performance by collecting and using more representative training data.  
 
-In this assignment, we train a scene recognition model using data from Lazebnik et al. 2006. It is impossible to completely mitigate biases in a dataset. Please review the data to check for potential biases: look at images in the data/train and data/test directories and consider their class labels.
+\paragraph{Q1:} The performance of trained classifiers is determined by the data we train them upon, and our perception of that performance is determined by how we evaluate them. One concern is that evaluation using overall accuracy across subgroups can mask poor performance in specific subgroups.
 
-Please list at least three potential biases in the dataset. If the outdoor images in the dataset were used to train a model for object recognition for a self-driving car, what are some consequences that could arise as a result of these biases? [3-4 sentences]
+Buolamwini and Gebru's 2018 paper \href{http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf}{Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification} found that Microsoft's Face API trained gender classifier achieved 94\% overall accuracy, with 100\% accuracy on lighter-skinned male faces and 79.2\% accuracy on darker-skinned female faces. In response to the report, Microsoft \href{https://blogs.microsoft.com/ai/gender-skin-tone-facial-recognition-improvement/}{significantly improved} their classifier's performance. This occurred through ``expanded and revised training and benchmark datasets, new data collection efforts to further improve the training data by focusing specifically on skin tone, gender and age, and an improved classifier to produce higher precision results.'' These steps helped, but in general it is impossible to completely mitigate all bias in a real-world dataset. 
+
+In this homework, we will train a scene recognition classifier using data from Lazebnik et al. 2006. Please review the data to check for potential biases: look at images in the data/train and data/test directories and consider their class labels. 
+
+Please list at least three potential biases in the dataset, and describe a potential consequence for each for an application that trained with this data.
+
+For example, if the street images in the dataset were used to train a pedestrian detector for a self-driving car, variation in clothing styles between training data and deployment environments might bias the classifier and fail to detect people. [1--2 sentences each]
 
 \paragraph{A1:} Your answer here
 
 \pagebreak
  
-\paragraph{Q2:}  It can be hard to find and collect representative data. One approach that companies and researchers have used is web scraping, which pulls data from different websites to easily create large datasets. This practice has come under increasing scrutiny, however. In 2021, France became the latest country to find that Clearview AI, which operates a facial recognition platform for law enforcement use, \href{https://techcrunch.com/2021/12/16/clearview-gdpr-breaches-france/}{violated privacy laws} by scraping 10 billion images of people's faces from Facebook, YouTube, and other websites without their consent.
+\paragraph{Q2:}  It can be hard and expensive to find and collect data. One approach that researchers and companies have used is Web scraping, which downloads data across many websites to more easily create large datasets.
+
+Web scraping has come under increasing scrutiny as computer vision systems have been deployed in real-world applications, because the technical capability to download publicly-accessible data does not imply consent for the use of that data. In 2021, France found that Clearview AI, a company that operates a facial recognition platform for law enforcement, \href{https://techcrunch.com/2021/12/16/clearview-gdpr-breaches-france/}{violated privacy laws} by scraping 10 billion images of people's faces from Facebook, YouTube, and other websites without consent.
 
 Given your answer to the previous question, please find additional scene data that could be used in conjunction with and fills some of the gaps in the Lazebnik et al. 2006 dataset. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google} and \href{https://www.kaggle.com}{Kaggle}. 
 
-Please provide a link to your dataset, and describe how it addresses some of the gaps in the project dataset and any limitations of the new data. How was this new data collected? How was the Lazebnik et al. 2006 dataset collected? If you had to collect new scene data yourself in the real world, how would you do it? [6-7 sentences]
+Please provide a link to your dataset, and describe how it addresses some of the gaps in the project dataset and any limitations of the new data. How was this new data collected? How was the Lazebnik et al. 2006 dataset collected? If you had to collect new scene data yourself in the real world, how would you do it? [6--7 sentences]
 
 \paragraph{A2:} Your answer here
 \pagebreak
  
-\section*{Technical Questions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
