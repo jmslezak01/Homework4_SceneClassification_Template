@@ -59,22 +59,22 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Homework 4 Questions}
+\lhead{Homework on Scene Recognition: Written Questions}
 \rhead{CSCI 1430}
 \lfoot{\textcolor{red}{Only 
 \ifcase\thepage
 \or instructions
 \or A1
 \or A2
-\or Q1
-\or A1
-\or A2
+\or Q3
 \or A3
-\or Q4
 \or A4
-\or Q5
-\or Q5
 \or A5
+\or Q6
+\or A6
+\or Q7
+\or Q7
+\or A7
 \or feedback
 \else
 EXTRA PAGE ADDED
@@ -85,7 +85,7 @@ should be on this page
 
 \date{}
 
-\title{\vspace{-2cm}Homework 4 Questions}
+\title{\vspace{-2cm}Scene Recognition Questions}
 
 
 \begin{document}
@@ -104,7 +104,7 @@ should be on this page
 \end{itemize}
 \pagebreak
 
-\paragraph{Q1:} The performance of trained classifiers is determined by the data we train them upon, and our perception of that performance is determined by how we evaluate them. One concern is that evaluation using overall accuracy across subgroups can mask poor performance in specific subgroups.
+\paragraph{Q1:} The performance of trained classifiers is determined by the data we train them upon, and our perception of that performance is determined by how we evaluate them. One concern is that evaluation using overall accuracy can mask poor performance in specific subgroups caused by dataset bias.
 
 Buolamwini and Gebru's 2018 paper \href{http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf}{Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification} found that Microsoft's Face API trained gender classifier achieved 94\% overall accuracy, with 100\% accuracy on lighter-skinned male faces and 79.2\% accuracy on darker-skinned female faces. In response to the report, Microsoft \href{https://blogs.microsoft.com/ai/gender-skin-tone-facial-recognition-improvement/}{significantly improved} their classifier's performance. This occurred through ``expanded and revised training and benchmark datasets, new data collection efforts to further improve the training data by focusing specifically on skin tone, gender and age, and an improved classifier to produce higher precision results.'' These steps helped, but in general it is impossible to completely mitigate all bias in a real-world dataset. 
 
@@ -122,17 +122,28 @@ For example, if the street images in the dataset were used to train a pedestrian
 
 Web scraping has come under increasing scrutiny as computer vision systems have been deployed in real-world applications, because the technical capability to download publicly-accessible data does not imply consent for the use of that data. In 2021, France found that Clearview AI, a company that operates a facial recognition platform for law enforcement, \href{https://techcrunch.com/2021/12/16/clearview-gdpr-breaches-france/}{violated privacy laws} by scraping 10 billion images of people's faces from Facebook, YouTube, and other websites without consent.
 
-Given your answer to the previous question, please find additional scene data that could be used in conjunction with and fills some of the gaps in the Lazebnik et al. 2006 dataset. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google} and \href{https://www.kaggle.com}{Kaggle}. 
+a) How was the Lazebnik et al. 2006 dataset collected?
 
-Please provide a link to your dataset, and describe how it addresses some of the gaps in the project dataset and any limitations of the new data. How was this new data collected? How was the Lazebnik et al. 2006 dataset collected? If you had to collect new scene data yourself in the real world, how would you do it? [6--7 sentences]
+Dataset collection might merge multiple sources to fill in gaps in sampling a data distribution. Please find additional scene data that could be added to the Lazebnik et al. 2006 dataset. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google} and \href{https://www.kaggle.com}{Kaggle}. 
 
-\paragraph{A2:} Your answer here
-\pagebreak
+b) Find a dataset and provide a URL to it. Given your answers to Q1, describe how the new data addresses gaps in the project dataset and any limitations of the new data. [3--4 sentences] 
+
+c) How was this new data collected? If you had to collect new scene data yourself, how would you do it? [6--7 sentences]
+
+\paragraph{A2:} 
+
+a) Your answer here
+
+b) Your answer here
+
+c) Your answer here
+
  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
 
-\paragraph{Q1:} 
+\paragraph{Q3:} 
 
 \begin{enumerate} [(a)]
     \item Define these common terms in machine learning:
@@ -152,7 +163,7 @@ Please provide a link to your dataset, and describe how it addresses some of the
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\paragraph{A1:} Your answer here.
+\paragraph{A3:} Your answer here.
 % Uncomment the stencil below and fill in your solution.
 
 % \begin{enumerate}[(a)]
@@ -176,7 +187,7 @@ Please provide a link to your dataset, and describe how it addresses some of the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q2:} Suppose we create a visual word dictionary using SIFT and k-means clustering for a scene recognition algorithm. Examining the SIFT features generated from our training database, we see that many are almost equidistant from two or more visual words. 
+\paragraph{Q4:} Suppose we create a visual word dictionary using SIFT and k-means clustering for a scene recognition algorithm. Examining the SIFT features generated from our training database, we see that many are almost equidistant from two or more visual words. 
 \begin{enumerate}[(a)]
     \item 
     Why might this affect classification accuracy?
@@ -189,7 +200,7 @@ Please provide a link to your dataset, and describe how it addresses some of the
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{A2:} Your answer here.
+\paragraph{A4:} Your answer here.
 % Uncomment the stencil below and fill in your solution.
 
 % \begin{enumerate}[(a)]
@@ -205,7 +216,7 @@ Please provide a link to your dataset, and describe how it addresses some of the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q3:} The way that the bag of words representation handles the spatial layout of visual information can be both an advantage and a disadvantage.
+\paragraph{Q5:} The way that the bag of words representation handles the spatial layout of visual information can be both an advantage and a disadvantage.
 \begin{enumerate}[(a)]
 \item Describe an example scenario for each of these cases.
 \item Describe a modification or additional algorithm which might\\overcome the disadvantage.
@@ -213,7 +224,7 @@ Please provide a link to your dataset, and describe how it addresses some of the
 \item How might we determine whether bag of words is a good model?
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{A3:} Your answer here.
+\paragraph{A5:} Your answer here.
 % Uncomment the stencil below and fill in your solution.
 
 % \begin{enumerate}[(a)]
@@ -232,7 +243,7 @@ Please provide a link to your dataset, and describe how it addresses some of the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q4:} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
+\paragraph{Q6:} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
 
 Below, we provide pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please edit the pseudo-code to convert this into a multi-class classifier. 
 
@@ -250,7 +261,7 @@ Below, we provide pseudocode for a linear classifier. It trains a model on a tra
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\paragraph{A4:} Your answer here.
+\paragraph{A6:} Your answer here.
 
 \begin{python}
 # Inputs
@@ -282,7 +293,7 @@ def classify(train_feats, train_labels, test_feat)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 
-\paragraph{Q5:} In Homework 4, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at corners) to create visual words.
+\paragraph{Q7:} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at corners) to create visual words.
 
 HOG creates a feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. 
 
@@ -330,7 +341,7 @@ Dimensions of resulting feature descriptor:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\paragraph{A5:} Your answer here.
+\paragraph{A7:} Your answer here.
 % Uncomment the stencil below and fill in your solution.
 
 % a)
