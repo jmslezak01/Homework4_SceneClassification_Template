@@ -35,11 +35,11 @@ In main.py, we will run different combinations of functions in Group 1 and Group
     i) get_tiny_images + nearest_neighbor_classify    
     ii) get_bags_of_words + nearest_neighbor_classify
     iii) get_bags_of_words + svm_classify
-    to do scene classification.
-    We recommend to implement the functions in the following order:
-        get_tiny_images, nearest_neighbor_classify, THEN run (i) to see the performance;
-        get_bags_of_words, THEN run (ii) to see the performance.
-        svm_classify, THEN run (iii) to see the performance.
+    to perform scene classification.
+We recommend to implement the functions in the following order:
+    1) get_tiny_images, nearest_neighbor_classify, THEN run (i) to see the performance;
+    2) get_bags_of_words, THEN run (ii) to see the performance.
+    3) svm_classify, THEN run (iii) to see the performance.
 
 Read main.py for more details.
 '''
@@ -131,16 +131,21 @@ def build_vocabulary(image_paths, vocab_size):
     we want to break our long np array (long_boi) into rows of z*z*9 feature
     vectors we can use small_bois = long_boi.reshape(-1, z*z*9).
 
+
     ONE MORE THING
     If we returned all the features we found as our vocabulary, we would have an
     absolutely massive vocabulary. That would make matching inefficient AND
     inaccurate! So we use K Means clustering to find a much smaller (vocab_size)
     number of representative points. We recommend using sklearn.cluster.KMeans
-    (or sklearn.cluster.MiniBatchKMeans if KMeans takes to long for you) to do this. 
-    Note that this can take a VERY LONG TIME to complete (upwards of ten minutes 
+    or sklearn.cluster.MiniBatchKMeans if sklearn.cluster.KMeans takes to long for you. 
+    Note that this can take A LONG TIME to complete (upwards of ten minutes 
     for large numbers of features and large max_iter), so set the max_iter argument
     to something low (we used 100) and be patient. You may also find success setting
-    the "tol" argument (see documentation for details)
+    the "tol" argument (see documentation for details).
+
+    Once the vocabulary is created, it is saved as vocab.npy in a call in main.py. 
+    If you then use the flag `--load_vocab` on launch, it will load the vocab instead
+    of recreating it. Hey presto!
     '''
 
     #TODO: Implement this function!
@@ -196,20 +201,24 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
     using those learned classifiers on the testing data.
 
     Inputs:
-        train_image_feats: An nxd numpy array, where n is the number of training
-                           examples, and d is the image descriptor vector size.
-        train_labels: An nx1 Python list containing the corresponding ground
-                      truth labels for the training data.
-        test_image_feats: An mxd numpy array, where m is the number of test
-                          images and d is the image descriptor vector size.
+        train_image_feats:  An nxd numpy array, where n is the number of training
+                            examples, and d is the image descriptor vector size.
+        train_labels:       An n x 1 Python list containing the corresponding ground
+                            truth labels for the training data.
+        test_image_feats:   An m x d numpy array, where m is the number of test
+                            images and d is the image descriptor vector size.
 
     Outputs:
-        An mx1 numpy array of strings, where each string is the predicted label
+        An m x 1 numpy array of strings, where each string is the predicted label
         for the corresponding image in test_image_feats
 
     We suggest you look at the sklearn.svm module, including the LinearSVC
-    class. With the right arguments, you can get a 15-class SVM as described
-    above in just one call! Be sure to read the documentation carefully.
+    class. With the right arguments, we can obtain a 15-class SVM as described
+    above. Be sure to read the documentation carefully.
+
+    EXTRA CREDIT up to +5
+    Implement a 15-way classifier using multiple binary (2-way) classifier functions, 
+    as we did in pseudocode in the written questions.
     '''
 
     # TODO: Implement this function!
