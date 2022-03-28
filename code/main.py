@@ -12,7 +12,7 @@ from create_results_webpage import create_results_webpage
 def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab='True',
                     data_path='../data/'):
     '''
-    For this project, you will need to report performance for three
+    For this homework, you will need to report performance for three
     combinations of features / classifiers. We recommend that you code them in
     this order:
         1) Tiny image features and nearest neighbor classifier
@@ -179,7 +179,7 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab=
 
     # If we wanted to evaluate our recognition method properly we would train
     # and test on many random splits of the data. You are not required to do so
-    # for this project.
+    # for this homework.
 
     # This function will recreate results_webpage/index.html and various image
     # thumbnails each time it is called. View the webpage to help interpret
