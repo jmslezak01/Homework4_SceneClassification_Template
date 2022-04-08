@@ -302,9 +302,9 @@ def classify(train_feats, train_labels, test_feat)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 
-\paragraph{Q7:} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract many HOG features across the entire image (not just at image corners or interest points) to create visual words.
+\paragraph{Q7:} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at interest points).
 
-HOG creates one feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. Computing HOG over the whole image, we might produce a matrix where each row is a descriptor, or if wish to extract a single feature vector per image, we would concatenate all descriptors.
+HOG creates one feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. Computing HOG over the whole image, we might produce a matrix where each row is a descriptor, or if we wish to extract a single feature vector per image, we would concatenate all block-level descriptors.
 
 \emph{Blocks can overlap as displayed in the diagram below.}
 %
@@ -344,17 +344,15 @@ Dimensions of feature vector for the whole image:
 When using HOG, the parameters such as pixels per cell and cells per block impact the resulting feature descriptor and so our performance on a classification task.
 \begin{enumerate}[(b)]
 \item What are the pros and cons of the two parameter combinations? Which might you expect to have better performance?
-
-\emph{Note: You may find it useful to look at the thesis of Navneet Dalal (co-inventor of HOG) for more on this topic. \href{http://lear.inrialpes.fr/people/dalal/NavneetDalalThesis.pdf}{[Link to thesis]} (pages 39, 41 in Section 4.3).}
-
 \end{enumerate}
-
-\emph{Please answer on the next page.}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 \paragraph{A7:} Your answer here.
+
+% \emph{Note: You may find it interesting to read the thesis of Navneet Dalal (co-inventor of HOG) for more information on this topic. \href{http://lear.inrialpes.fr/people/dalal/NavneetDalalThesis.pdf}{[Link to thesis]} (pages 39, 41 in Section 4.3).}
+
+
 % Uncomment the stencil below and fill in your solution.
 
 % a)
@@ -364,7 +362,7 @@ When using HOG, the parameters such as pixels per cell and cells per block impac
 % \\
 % Number of blocks: 
 % \\
-% Dimensions of resulting feature descriptor: 
+% Dimensions of feature vector for the whole image: 
 % \\
 
 
@@ -374,7 +372,7 @@ When using HOG, the parameters such as pixels per cell and cells per block impac
 % \\
 % Number of blocks: 
 % \\
-% Dimensions of resulting feature descriptor: 
+% Dimensions of feature vector for the whole image: 
 % \\
 
 
