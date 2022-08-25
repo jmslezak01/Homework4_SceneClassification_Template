@@ -17,7 +17,7 @@
 % https://en.wikibooks.org/wiki/LaTeX
 %
 % Good luck!
-% James and the 1430 staff
+% Srinath and the 1430 staff
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -52,6 +52,7 @@
 % python code format: https://github.com/olivierverdier/python-latex-highlighting
 \usepackage{pythonhighlight}
 \definecolor{lightgray}{RGB}{230,230,230}
+\usepackage{mdframed}
 
 \frenchspacing
 \setlength{\parindent}{0cm} % Default is 15pt.
@@ -61,27 +62,27 @@
 \fancyhf{}
 \lhead{Homework 4 Questions}
 \rhead{CSCI 1430}
-\lfoot{\textcolor{red}{Only 
-\ifcase\thepage
-\or instructions
-\or A1
-\or A1
-\or A2
-\or A2
-\or Q3
-\or A3
-\or A4
-\or A5
-\or Q6
-\or A6
-\or Q7
-\or A7
-\or feedback
-\else
-EXTRA PAGE ADDED
-\fi
-should be on this page
-}}
+% \lfoot{\textcolor{red}{Only 
+% \ifcase\thepage
+% \or instructions
+% \or A1
+% \or A1
+% \or A2
+% \or A2
+% \or Q3
+% \or A3
+% \or A4
+% \or A5
+% \or Q6
+% \or A6
+% \or Q7
+% \or A7
+% \or feedback
+% \else
+% EXTRA PAGE ADDED
+% \fi
+% should be on this page
+% }}
 \rfoot{\thepage~/ 14}
 
 \date{}
@@ -94,18 +95,24 @@ should be on this page
 \thispagestyle{fancy}
 \vspace{-3cm}
 
-\section*{Instructions}
+\section*{Document Instructions}
 \begin{itemize}
-  \item 2 socially-responsible computing questions, which will be expanded on in discussion sections.
-  \item 5 technical questions.
-  \item Write code where appropriate; feel free to include images or equations.
+  \item 7 questions \textbf{[5 + 6 + 6 + 8 + 4 + 9 + 3 = 41 points]}.
+  \item Fill all your answers within the answer boxes, and \textbf{please do NOT remove the answer box outlines}.
+  \item Include code, images, and equations where appropriate.
+  \item To identify all places where your responses are expected, search for `TODO'.
   \item Please make this document anonymous.
-  \item This assignment is \textbf{fixed length}, and the pages have been assigned for you in Gradescope. As a result, \textbf{please do NOT add any new pages}. We will provide ample room for you to answer the questions. If you \emph{really} wish for more space, please add a page \emph{at the end of the document}.
-  \item \textbf{We do NOT expect you to fill up each page with your answer.} Some answers will only be a few sentences long, and that is okay.
+\end{itemize}
+
+\section*{ Gradescope Instructions}
+\begin{itemize}
+  \item When you are finished, compile this document to a PDF and submit it directly to Gradescope. 
+  \item You will be required to assign the appropriate answers to the right pages on Gradescope. \textbf{Failure to assign pages correctly will lead to a deduction of 2 points per misaligned page (capped at a maxmimum 6 point deduction).}
 \end{itemize}
 \pagebreak
 
-\paragraph{Q1:} The performance of trained classifiers is determined by the data we train them upon, and our perception of that performance is determined by how we evaluate them. One concern is that evaluation using overall accuracy can mask poor performance in specific subgroups caused by dataset bias.
+
+\paragraph{Q1:} \textbf{[3 $\times$ 2 points]} The performance of trained classifiers is determined by the data we train them upon, and our perception of that performance is determined by how we evaluate them. One concern is that evaluation using overall accuracy can mask poor performance in specific subgroups caused by dataset bias.
 
 Buolamwini and Gebru's 2018 paper \href{http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf}{Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification} found that Microsoft's Face API trained gender classifier achieved 94\% overall accuracy, with 100\% accuracy on lighter-skinned male faces and 79.2\% accuracy on darker-skinned female faces. In response to the report, Microsoft \href{https://blogs.microsoft.com/ai/gender-skin-tone-facial-recognition-improvement/}{significantly improved} their classifier's performance. This occurred through ``expanded and revised training and benchmark datasets, new data collection efforts to further improve the training data by focusing specifically on skin tone, gender and age, and an improved classifier to produce higher precision results.'' These steps helped, but in general it is impossible to completely mitigate all bias in a real-world dataset. 
 
@@ -115,40 +122,58 @@ Please list at least three potential biases in the dataset, and describe a poten
 
 For example, if the street images in the dataset were used to train a pedestrian detector for a self-driving car, variation in clothing styles between training data and deployment environments might bias the classifier and fail to detect people. [1--2 sentences each]
 
-\paragraph{A1:} Your answer here
+% \paragraph{A1:} Your answer here
 
-\pagebreak
+\begin{mdframed}
+TODO: Your answer here.
+\end{mdframed}
 
-\textbf{Extra Space}
+% \pagebreak
+
+% \textbf{Extra Space}
 
 \pagebreak
  
-\paragraph{Q2:}  It can be hard and expensive to find and collect data. One approach that researchers and companies have used is Web scraping, which downloads data across many websites to more easily create large datasets.
+\paragraph{Q2:} \textbf{[6 points]} It can be hard and expensive to find and collect data. One approach that researchers and companies have used is Web scraping, which downloads data across many websites to more easily create large datasets.
 
 Web scraping has come under increased scrutiny as computer vision systems have been deployed in real-world applications, because the technical capability to download publicly-accessible data does not imply consent for the use of that data. In 2021, France found that Clearview AI, a company that operates a facial recognition platform for law enforcement, \href{https://techcrunch.com/2021/12/16/clearview-gdpr-breaches-france/}{violated privacy laws} by scraping 10 billion images of people's faces from Facebook, YouTube, and other websites without consent.
 
-a) How was the Lazebnik et al. 2006 dataset collected?
+\begin{enumerate}[(a)]
+    \item \textbf{[1 point]}
+How was the Lazebnik et al. 2006 dataset collected?
 
+\begin{mdframed}
+TODO: Your answer to (a) here.
+\end{mdframed}
+
+\item \textbf{[2 points]} 
 Dataset collection might merge multiple sources to fill in gaps in sampling a data distribution. Please find additional scene data that could be added to the Lazebnik et al. 2006 dataset. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google} and \href{https://www.kaggle.com}{Kaggle}. 
 
-b) Find a dataset and provide a URL to it. Given your answers to Q1, describe how the new data addresses gaps in the homework dataset and any limitations of the new data. [3--4 sentences] 
+Find a dataset and provide a URL to it. Given your answers to Q1, describe how the new data addresses gaps in the homework dataset and any limitations of the new data. [3--4 sentences] 
+\begin{mdframed}
+TODO: Your answer to (b) here.
+\end{mdframed}
 
-c) How was this new data collected? If you had to collect new scene data yourself, how would you do it? [6--7 sentences]
+\item \textbf{[1 + 2 points]} How was this new data collected? If you had to collect new scene data yourself, how would you do it? [6--7 sentences]
+\begin{mdframed}
+TODO: Your answer to (c) here.
+\end{mdframed}
+\end{enumerate}
 
-\paragraph{A2:} 
+% \paragraph{A2:} 
 
-a) Your answer here
+% a) Your answer here
 
-b) Your answer here
+% b) Your answer here
 
-c) Your answer here
+% c) Your answer here
 
  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
+% \pagebreak
 
-\textbf{Extra Space}
+% \textbf{Extra Space}
 
 \pagebreak
 
