@@ -110,7 +110,7 @@
 
 \section*{Document Instructions}
 \begin{itemize}
-  \item 7 questions \textbf{[5 + 6 + 6 + 8 + 4 + 9 + 3 = 41 points]}.
+  \item 7 questions \textbf{[6 + 6 + 6 + 4 + 4 + 4 + 10 = 40 points]}.
   \item Fill all your answers within the answer boxes, and \textbf{please do NOT remove the answer box outlines}.
   \item Include code, images, and equations where appropriate.
   \item To identify all places where your responses are expected, search for `TODO'.
@@ -384,53 +384,71 @@ def classify(train_feats, train_labels, test_feat)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 
-\paragraph{Q7:} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at interest points).
+\paragraph{Q7:} \textbf{[10 points]} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at interest points).
 
 HOG creates one feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. Computing HOG over the whole image, we might produce a matrix where each row is a descriptor, or if we wish to extract a single feature vector per image, we would concatenate all block-level descriptors.
 
 \emph{Blocks can overlap as displayed in the diagram below.}
-%
-\begin{center}
-    \includegraphics[clip, trim = {0.2cm, 0.35cm, 0.2cm, 0.2cm}, width=12cm]{hog-diagram.png}
-\end{center}
 
+% \begin{center}
+    \includegraphics[width=1.3\textwidth]{images/hog-diagram.png}
+% \end{center}
 
 \begin{enumerate}[(a)]
-\item Given a \colorbox{lightgray}{$72\times72$} image, calculate the number of cells, blocks, and final feature vector size that will occur when we extract HOG features over the whole image with the following parameters using maximum overlap between blocks.
+\item \textbf{[6 points]} Given a $72\times72$ image, calculate the number of cells, blocks, and final feature vector size that will occur when we extract HOG features over the whole image with the following parameters using maximum overlap between blocks.
 
-Scenario 1: Pixels per cell = \colorbox{lightgray}{$4\times4$}, cells per block = \colorbox{lightgray}{$4\times4$} % (\emph{like in SIFT!}). 
-\\
-\emph{Calculate:}
-\\ 
+\begin{enumerate}[(i)]
+    \item \textbf{[3 $\times$ 1 points]}
+Scenario 1: Pixels per cell = $4\times4$, cells per block = $4\times4$ % (\emph{like in SIFT!}). 
+
+\begin{enumerate}[1.]
+    \item 
 Number of cells: 
-\\
+\begin{mdframed}
+TODO: Your answer to (a) (i) 1. here.
+\end{mdframed}
+    \item 
 Number of blocks: 
-\\
+\begin{mdframed}
+TODO: Your answer to (a) (i) 2. here.
+\end{mdframed}
+    \item 
 Dimensions of feature vector for the whole image: 
-\\
-
-\vspace{-0.35cm}
-
-Scenario 2: Pixels per cell = \colorbox{lightgray}{$8\times8$}, cells per block = \colorbox{lightgray}{$2\times2$}.
-\\
-\emph{Calculate:}
-\\ 
-Number of cells:
-\\
-Number of blocks: 
-\\
-Dimensions of feature vector for the whole image: 
+\begin{mdframed}
+TODO: Your answer to (a) (i) 3. here.
+\end{mdframed}
 \end{enumerate}
-%
 
+\item \textbf{[3 $\times$ 1 points]}
+Scenario 2: Pixels per cell = $8\times8$, cells per block = $2\times2$.
+\begin{enumerate}[1.]
+    \item 
+Number of cells: 
+\begin{mdframed}
+TODO: Your answer to (a) (ii) 1. here.
+\end{mdframed}
+    \item 
+Number of blocks: 
+\begin{mdframed}
+TODO: Your answer to (a) (ii) 2. here.
+\end{mdframed}
+    \item 
+Dimensions of feature vector for the whole image: 
+\begin{mdframed}
+TODO: Your answer to (a) (ii) 3. here.
+\end{mdframed}
+\end{enumerate}
+\end{enumerate}
+
+\item \textbf{[2 + 2 points]}
 When using HOG, the parameters such as pixels per cell and cells per block impact the resulting feature descriptor and so our performance on a classification task.
-\begin{enumerate}[(b)]
-\item What are the pros and cons of the two parameter combinations? Which might you expect to have better performance?
+
+What are the pros and cons of the two parameter combinations? Which might you expect to have better performance?
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-\paragraph{A7:} Your answer here.
+% \pagebreak
+% \paragraph{A7:} Your answer here.
 
 % \emph{Note: You may find it interesting to read the thesis of Navneet Dalal (co-inventor of HOG) for more information on this topic. \href{http://lear.inrialpes.fr/people/dalal/NavneetDalalThesis.pdf}{[Link to thesis]} (pages 39, 41 in Section 4.3).}
 
