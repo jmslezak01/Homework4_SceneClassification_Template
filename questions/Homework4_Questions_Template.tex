@@ -1,25 +1,26 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % CSCI 1430 Written Question Template
 %
-% This is a LaTeX document. LaTeX is a markup language for producing documents.
-% Your task is to answer the questions by filling out this document, then to
-% compile this into a PDF document.
+% This is a LaTeX document. LaTeX is a markup language for producing documents. 
+% You will fill out this document, compile it into a PDF document, then upload the PDF to Gradescope. 
 %
-% TO COMPILE:
+% To compile into a PDF on department machines:
 % > pdflatex thisfile.tex
 %
-% If you do not have LaTeX and need a LaTeX distribution:
-% - Departmental machines have one installed.
-% - Personal laptops (all common OS): http://www.latex-project.org/get/
+% If you do not have LaTeX, your options are:
+% - VSCode extension: https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop
+% - Online Tool: https://www.overleaf.com/ - most LaTeX packages are pre-installed here (e.g., \usepackage{}).
+% - Personal laptops (all common OS): http://www.latex-project.org/get/ 
 %
-% If you need help with LaTeX, come to office hours. Or, there is plenty of help online:
+% If you need help with LaTeX, please come to office hours.
+% Or, there is plenty of help online:
 % https://en.wikibooks.org/wiki/LaTeX
 %
 % Good luck!
 % Srinath and the 1430 staff
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % How to include two graphics on the same line:
 %
@@ -31,6 +32,14 @@
 % \begin{equation}
 % y = mx+c
 % \end{equation}
+%
+% How to include code:
+%
+% \begin{python}
+% def f(x):
+%   return x
+% \end{python}
+%
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -44,15 +53,19 @@
 \usepackage[a4paper,margin=1.5in]{geometry}
 \usepackage{stackengine,graphicx}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
 \setlength{\headheight}{15pt}
 \usepackage{microtype}
 \usepackage{times}
+\usepackage{booktabs}
 \usepackage[shortlabels]{enumitem}
 \setlist[enumerate]{topsep=0pt}
-% python code format: https://github.com/olivierverdier/python-latex-highlighting
-\usepackage{pythonhighlight}
-\definecolor{lightgray}{RGB}{230,230,230}
 \usepackage{mdframed}
+
+\usepackage{pythonhighlight}
+
 
 \frenchspacing
 \setlength{\parindent}{0cm} % Default is 15pt.
@@ -237,20 +250,28 @@ TODO: Your answer to (c) here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q4:} Suppose we create a visual word dictionary using SIFT and k-means clustering for a scene recognition algorithm. Examining the SIFT features generated from our training database, we see that many are almost equidistant from two or more visual words. 
+\paragraph{Q4:} \textbf{[4 points]} Suppose we create a visual word dictionary using SIFT and k-means clustering for a scene recognition algorithm. Examining the SIFT features generated from our training database, we see that many are almost equidistant from two or more visual words. 
 \begin{enumerate}[(a)]
-    \item 
+    \item \textbf{[2 points]}
     Why might this affect classification accuracy?
+    
+    \begin{mdframed}
+    TODO: Your answer to (a) here.
+    \end{mdframed}
 
-    \item
+    \item \textbf{[2 points]}
     Given the situation, describe \emph{two} methods to improve classification accuracy, and explain why they would help.\\ 
     \emph{These can be for k-means, or otherwise.}
+    
+    \begin{mdframed}
+    TODO: Your answer to (b) here.
+    \end{mdframed}
 
 \end{enumerate}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{A4:} Your answer here.
+% \paragraph{A4:} Your answer here.
 % Uncomment the stencil below and fill in your solution.
 
 % \begin{enumerate}[(a)]
@@ -266,15 +287,24 @@ TODO: Your answer to (c) here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q5:} The way that the bag of words representation handles the spatial layout of visual information can be both an advantage and a disadvantage.
+\paragraph{Q5:} \textbf{[4 points]} The way that the bag of words representation handles the spatial layout of visual information can be both an advantage and a disadvantage.
 \begin{enumerate}[(a)]
-\item Describe an example scenario for each of these cases.
-\item Describe a modification or additional algorithm which might\\overcome the disadvantage.
+\item \textbf{[2 points]} Describe an example scenario for each of these cases.
+\begin{mdframed}
+TODO: Your answer to (a) here.
+\end{mdframed}
+\item \textbf{[1 point]} Describe a modification or additional algorithm which might\\overcome the disadvantage.
+\begin{mdframed}
+TODO: Your answer to (b) here.
+\end{mdframed}
 
-\item How might we determine whether bag of words is a good model?
+\item \textbf{[1 point]} How might we determine whether bag of words is a good model?
+\begin{mdframed}
+TODO: Your answer to (c) here.
+\end{mdframed}
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{A5:} Your answer here.
+% \paragraph{A5:} Your answer here.
 % Uncomment the stencil below and fill in your solution.
 
 % \begin{enumerate}[(a)]
@@ -293,7 +323,7 @@ TODO: Your answer to (c) here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q6:} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
+\paragraph{Q6:} \textbf{[4 points]} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
 
 Below, we provide pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please edit the pseudo-code to convert this into a multi-class classifier. 
 
@@ -307,11 +337,21 @@ Below, we provide pseudocode for a linear classifier. It trains a model on a tra
 
 \emph{Note:} A more efficient software application would separate the classifier training and testing into two different functions so that the model could be reused without retraining. Feel free to ignore this for now.
 
-\emph{Please answer on the next page.}
+% \emph{Please answer on the next page.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-\paragraph{A6:} Your answer here.
+% \pagebreak
+% \paragraph{A6:} Your answer here.
+\begin{mdframed}
+TODO: Select the implementation you chose.
+
+\begin{tabular}[h]{lc}
+\bottomrule
+One vs One & $\square$ \\
+One vs Many & $\square$ \\
+\toprule
+\end{tabular}
+\end{mdframed}
 
 \begin{python}
 # Inputs
@@ -322,13 +362,14 @@ Below, we provide pseudocode for a linear classifier. It trains a model on a tra
 #
 #   Outputs: -1 (class 0) or 1 (class 1)
 #
-# Please turn this into a multi-class classifier for k classes.
 # Inputs:
 #    As before, except
 #    train_labels: N x 1 array of class label integers from 0 to k-1
 # Outputs:
 #    A class label integer from 0 to k-1
 #
+
+# TODO: Turn this into a multi-class classifier for k classes.
 def classify(train_feats, train_labels, test_feat)
     # Train classification hyperplane
     weights, bias = train_linear_classifier(train_feats, train_label)
