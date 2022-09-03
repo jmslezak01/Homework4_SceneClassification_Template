@@ -110,7 +110,7 @@
 
 \section*{Document Instructions}
 \begin{itemize}
-  \item 7 questions \textbf{[6 + 6 + 6 + 4 + 4 + 4 + 10 = 40 points]}.
+  \item 5 questions \textbf{[8 + 10 + 8 + 4 + 10 = 40 points]}.
   \item Fill all your answers within the answer boxes, and \textbf{please do NOT remove the answer box outlines}.
   \item Include code, images, and equations where appropriate.
   \item To identify all places where your responses are expected, search for `TODO'.
@@ -125,53 +125,7 @@
 \pagebreak
 
 
-\paragraph{Q1:} \textbf{[3 $\times$ 2 points]} The performance of trained classifiers is determined by the data we train them upon, and our perception of that performance is determined by how we evaluate them. One concern is that evaluation using overall accuracy can mask poor performance in specific subgroups caused by dataset bias.
 
-Buolamwini and Gebru's 2018 paper \href{http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf}{Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification} found that Microsoft's Face API trained gender classifier achieved 94\% overall accuracy, with 100\% accuracy on lighter-skinned male faces and 79.2\% accuracy on darker-skinned female faces. In response to the report, Microsoft \href{https://blogs.microsoft.com/ai/gender-skin-tone-facial-recognition-improvement/}{significantly improved} their classifier's performance. This occurred through ``expanded and revised training and benchmark datasets, new data collection efforts to further improve the training data by focusing specifically on skin tone, gender and age, and an improved classifier to produce higher precision results.'' These steps helped, but in general it is impossible to completely mitigate all bias in a real-world dataset. 
-
-In this homework, we will train a scene classifier using data from Lazebnik et al. 2006. Please review the data to check for potential biases: look at images in the data/train and data/test directories and consider their class labels. 
-
-Please list at least three potential biases in the dataset, and describe a potential consequence for each for an application that trained with this data.
-
-For example, if the street images in the dataset were used to train a pedestrian detector for a self-driving car, variation in clothing styles between training data and deployment environments might bias the classifier and fail to detect people. [1--2 sentences each]
-
-% \paragraph{A1:} Your answer here
-
-\begin{mdframed}
-TODO: Your answer here.
-\end{mdframed}
-
-% \pagebreak
-
-% \textbf{Extra Space}
-
-\pagebreak
- 
-\paragraph{Q2:} \textbf{[6 points]} It can be hard and expensive to find and collect data. One approach that researchers and companies have used is Web scraping, which downloads data across many websites to more easily create large datasets.
-
-Web scraping has come under increased scrutiny as computer vision systems have been deployed in real-world applications, because the technical capability to download publicly-accessible data does not imply consent for the use of that data. In 2021, France found that Clearview AI, a company that operates a facial recognition platform for law enforcement, \href{https://techcrunch.com/2021/12/16/clearview-gdpr-breaches-france/}{violated privacy laws} by scraping 10 billion images of people's faces from Facebook, YouTube, and other websites without consent.
-
-\begin{enumerate}[(a)]
-    \item \textbf{[1 point]}
-How was the Lazebnik et al. 2006 dataset collected?
-
-\begin{mdframed}
-TODO: Your answer to (a) here.
-\end{mdframed}
-
-\item \textbf{[2 points]} 
-Dataset collection might merge multiple sources to fill in gaps in sampling a data distribution. Please find additional scene data that could be added to the Lazebnik et al. 2006 dataset. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google} and \href{https://www.kaggle.com}{Kaggle}. 
-
-Find a dataset and provide a URL to it. Given your answers to Q1, describe how the new data addresses gaps in the homework dataset and any limitations of the new data. [3--4 sentences] 
-\begin{mdframed}
-TODO: Your answer to (b) here.
-\end{mdframed}
-
-\item \textbf{[1 + 2 points]} How was this new data collected? If you had to collect new scene data yourself, how would you do it? [6--7 sentences]
-\begin{mdframed}
-TODO: Your answer to (c) here.
-\end{mdframed}
-\end{enumerate}
 
 % \paragraph{A2:} 
 
@@ -182,7 +136,7 @@ TODO: Your answer to (c) here.
 % c) Your answer here
 
  
-
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \pagebreak
 
@@ -190,10 +144,12 @@ TODO: Your answer to (c) here.
 
 \pagebreak
 
-\paragraph{Q3:} \textbf{[6 points]}
+\paragraph{Q1:} \textbf{[8 points]}
 
 \begin{enumerate} [(a)]
-    \item Define these common terms in machine learning:
+    \item NEW: In machine learning, there are two main types of metric errors. These errors appear when the magnitude of the model's error is averaged over different testing/training data sets. Describe the main difference between these two types of errors.
+    
+    OLD: Describe these two types of machine learning.
     \begin{enumerate} [(i)]
     \item \textbf{[1 point]} Bias
     \begin{mdframed}
@@ -202,6 +158,10 @@ TODO: Your answer to (c) here.
     \item \textbf{[1 point]} Variance
     \begin{mdframed}
     TODO: Your answer to (a) (ii) here.
+    \end{mdframed}
+    \item \textbf{[2 points]} Why is it especially dangerous to confuse one for the other?
+    \begin{mdframed}
+    TODO: Your answer to (a) (iii) here.
     \end{mdframed}
     \end{enumerate}
     \item Define these terms in the context of evaluating a classifier:
@@ -250,23 +210,38 @@ TODO: Your answer to (c) here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q4:} \textbf{[4 points]} Suppose we create a visual word dictionary using SIFT and k-means clustering for a scene recognition algorithm. Examining the SIFT features generated from our training database, we see that many are almost equidistant from two or more visual words. 
+\paragraph{Q2:} \textbf{[10 points]} Suppose we create a visual word dictionary using SIFT and k-means clustering for a scene recognition algorithm. 
 \begin{enumerate}[(a)]
-    \item \textbf{[2 points]}
-    Why might this affect classification accuracy?
-    
+    \item \textbf{[4 points]} What characteristics would be desirable in the dataset that you choose to use to build your visual dictionary? Consider \href{https://www.telusinternational.com/articles/7-types-of-data-bias-in-machine-learning}{data bias trends} in popular machine learning datasets, the groups that these biases can harm, and how your choice in dataset could help. \textbf{[5-7 sentences]}
+
     \begin{mdframed}
     TODO: Your answer to (a) here.
     \end{mdframed}
+
+    \item \textbf{[4 points]}
+    After choosing an appropriate dataset, examination of the SIFT features generated from our training database tells us that many are almost equidistant from two or more visual words. 
+    \begin{enumerate} [(i)]
+    
+    \item \textbf{[2 points]} Why might this affect classification accuracy?
+    \begin{mdframed}
+    TODO: Your answer to (i) here.
+    \end{mdframed}
+    
+    \item \textbf{[2 points]} Why shouldn't we pick out a new dataset that better matches our model?
+    \begin{mdframed}
+    TODO: Your answer to (ii) here.
+    \end{mdframed}
+    \end{enumerate}
+    
 
     \item \textbf{[2 points]}
     Given the situation, describe \emph{two} methods to improve classification accuracy, and explain why they would help.\\ 
     \emph{These can be for k-means, or otherwise.}
     
     \begin{mdframed}
-    TODO: Your answer to (b) here.
+    TODO: Your answer to (c) here.
     \end{mdframed}
-
+    
 \end{enumerate}
 
 
@@ -287,21 +262,33 @@ TODO: Your answer to (c) here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q5:} \textbf{[4 points]} The way that the bag of words representation handles the spatial layout of visual information can be both an advantage and a disadvantage.
+\paragraph{Q3:} \textbf{[8 points]} 
+NEW: The bag of words representation handles the spatial layout of information in a way that can be an advantage or a disadvantage in different cases.
+
+OLD: The way that the bag of words representation handles the spatial layout of visual information can be both an advantage and a disadvantage.
 \begin{enumerate}[(a)]
-\item \textbf{[2 points]} Describe an example scenario for each of these cases.
+
+\item \textbf{[5 point]} NEW: How might we determine whether bag of words is a good model? What are good metrics for evaluating the bag of words model's effectiveness? Discuss both technical and nontechnical benchmarks for a "good" model. \textbf{[5-6 sentences]}
+
+OLD: How might we determine whether bag of words is a good model?
 \begin{mdframed}
 TODO: Your answer to (a) here.
 \end{mdframed}
-\item \textbf{[1 point]} Describe a modification or additional algorithm which might\\overcome the disadvantage.
+
+\item \textbf{[2 points]} 
+NEW: Describe two example scenarios when dealing with visual information, one that illustrates an advantage of the bag of words representation, and another that shows a disadvantage of the bag of words representation.
+
+OLD: Describe an example scenario for each of these cases.
 \begin{mdframed}
 TODO: Your answer to (b) here.
 \end{mdframed}
 
-\item \textbf{[1 point]} How might we determine whether bag of words is a good model?
+\item \textbf{[1 point]} Describe a modification or additional algorithm which might overcome the disadvantage.
 \begin{mdframed}
 TODO: Your answer to (c) here.
 \end{mdframed}
+
+
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \paragraph{A5:} Your answer here.
@@ -323,7 +310,7 @@ TODO: Your answer to (c) here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q6:} \textbf{[4 points]} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
+\paragraph{Q4:} \textbf{[4 points]} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
 
 Below, we provide pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please edit the pseudo-code to convert this into a multi-class classifier. 
 
@@ -384,9 +371,10 @@ def classify(train_feats, train_labels, test_feat)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 
-\paragraph{Q7:} \textbf{[10 points]} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at interest points).
+\paragraph{Q5:} \textbf{[10 points]} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at interest points).
 
-HOG creates one feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. Computing HOG over the whole image, we might produce a matrix where each row is a descriptor, or if we wish to extract a single feature vector per image, we would concatenate all block-level descriptors.
+HOG creates one feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. NEW: In other words, computing HOG over the whole image produces a matrix where each row is a descriptor. 
+% On the other hand, a matrix might not useful in some cases. Thus, we might flatten the image as a vector. If we wish to extract a single feature vector per image, we would concatenate all block-level descriptors. (flattening in code --> vector)
 
 \emph{Blocks can overlap as displayed in the diagram below.}
 
