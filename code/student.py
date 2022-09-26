@@ -212,9 +212,7 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
         An m x 1 numpy array of strings, where each string is the predicted label
         for the corresponding image in test_image_feats
 
-    We suggest you look at the sklearn.svm module, including the LinearSVC
-    class. With the right arguments, we can obtain a 15-class SVM as described
-    above. Be sure to read the documentation carefully.
+    IMPORTANT: You CANNOT use the sklearn.svm module, including the LinearSVC class! We will NOT give any credit if you use that function! Instead, implement your 15-class linear classifier pseudocode from the written homework question 4.
     '''
 
     # TODO: Implement this function!
