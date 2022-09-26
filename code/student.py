@@ -215,10 +215,6 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
     We suggest you look at the sklearn.svm module, including the LinearSVC
     class. With the right arguments, we can obtain a 15-class SVM as described
     above. Be sure to read the documentation carefully.
-
-    EXTRA CREDIT up to +5
-    Implement a 15-way classifier using multiple binary (2-way) classifier functions, 
-    as we did in pseudocode in the written questions.
     '''
 
     # TODO: Implement this function!
