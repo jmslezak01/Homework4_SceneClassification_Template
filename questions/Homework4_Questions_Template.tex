@@ -47,25 +47,30 @@
 
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{xcolor}
 \usepackage[colorlinks = true,
             linkcolor = blue,
             urlcolor  = blue]{hyperref}
 \usepackage[a4paper,margin=1.5in]{geometry}
 \usepackage{stackengine,graphicx}
 \usepackage{fancyhdr}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{enumerate}
 \setlength{\headheight}{15pt}
 \usepackage{microtype}
 \usepackage{times}
-\usepackage{booktabs}
 \usepackage[shortlabels]{enumitem}
 \setlist[enumerate]{topsep=0pt}
+\usepackage{amsmath}
+\usepackage{framed}
 \usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
 
+% a great python code format: https://github.com/olivierverdier/python-latex-highlighting
 \usepackage{pythonhighlight}
 
+\usepackage{trimclip,lipsum}
 
 \frenchspacing
 \setlength{\parindent}{0cm} % Default is 15pt.
@@ -73,260 +78,303 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Homework 4 Questions}
+\lhead{Homework 4 Written Questions}
 \rhead{CSCI 1430}
-% \lfoot{\textcolor{red}{Only 
-% \ifcase\thepage
-% \or instructions
-% \or A1
-% \or A1
-% \or A2
-% \or A2
-% \or Q3
-% \or A3
-% \or A4
-% \or A5
-% \or Q6
-% \or A6
-% \or Q7
-% \or A7
-% \or feedback
-% \else
-% EXTRA PAGE ADDED
-% \fi
-% should be on this page
-% }}
+\lfoot{\textcolor{red}{\textbf{Only}
+\ifcase\thepage
+\or \textbf{instructions}
+\or \textbf{A1 (a)}
+\or \textbf{A1 (b) - (c)}
+\or \textbf{A2 (a)}
+\or \textbf{A2 (b)}
+\or \textbf{A2 (c)}
+\or \textbf{A3 (a)}
+\or \textbf{A3 (b) - (c)}
+\or \textbf{A4}
+\or \textbf{A4}
+\or \textbf{A5 (a)}
+\or \textbf{A5 (a)}
+\or \textbf{A5 (b)}
+\or \textbf{discussion attendance}
+\or \textbf{feedback}
+\else
+\textbf{[ERROR: PAGE MISALIGNMENT]}
+\fi
+\textbf{should be on this page}
+}}
 \rfoot{\thepage~/ 14}
+
 
 \date{}
 
-\title{\vspace{-2cm}Homework 4 Questions}
+\title{\vspace{-1cm}Homework 4 Written Questions}
 
 
 \begin{document}
 \maketitle
-\thispagestyle{fancy}
 \vspace{-3cm}
+\thispagestyle{fancy}
 
-\section*{Document Instructions}
+\section*{ Document Instructions}
 \begin{itemize}
-  \item 7 questions \textbf{[6 + 6 + 6 + 4 + 4 + 4 + 10 = 40 points]}.
+  \item 5 questions \textbf{[8 + 10 + 8 + 4 + 10 = 40 + 2 bonus points]}.
   \item Fill all your answers within the answer boxes, and \textbf{please do NOT remove the answer box outlines}.
+  \item Questions are highlighted in the \textbf{orange boxes}, bonus questions are highlighted in \textbf{blue boxes}, answers should be recorded in the \textbf{green boxes}.
   \item Include code, images, and equations where appropriate.
   \item To identify all places where your responses are expected, search for `TODO'.
+  \item The answer box sizes have been set by the staff beforehand and \textbf{your responses should not exceed the green borders}. Any overfull text may be truncated, so make sure your responses fit. \textbf{Extra pages are not permitted unless otherwise specified.}
+  \item Make sure your submission has the right number of pages to validate page alignment sanity (check the footer).
   \item Please make this document anonymous.
 \end{itemize}
 
 \section*{ Gradescope Instructions}
 \begin{itemize}
   \item When you are finished, compile this document to a PDF and submit it directly to Gradescope. 
-  \item You will be required to assign the appropriate answers to the right pages on Gradescope. \textbf{Failure to assign pages correctly will lead to a deduction of 2 points per misaligned page (capped at a maxmimum 6 point deduction).}
+  \item The pages will be automatically assigned to the right questions on Gradescope \textit{assuming you do not add any unnecessary pages}. \textbf{Inconsistently assigned pages will lead to a deduction of 2 points per misaligned page (capped at a maximum 6 point deduction).}
 \end{itemize}
-\pagebreak
-
-
-\paragraph{Q1:} \textbf{[3 $\times$ 2 points]} The performance of trained classifiers is determined by the data we train them upon, and our perception of that performance is determined by how we evaluate them. One concern is that evaluation using overall accuracy can mask poor performance in specific subgroups caused by dataset bias.
-
-Buolamwini and Gebru's 2018 paper \href{http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf}{Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification} found that Microsoft's Face API trained gender classifier achieved 94\% overall accuracy, with 100\% accuracy on lighter-skinned male faces and 79.2\% accuracy on darker-skinned female faces. In response to the report, Microsoft \href{https://blogs.microsoft.com/ai/gender-skin-tone-facial-recognition-improvement/}{significantly improved} their classifier's performance. This occurred through ``expanded and revised training and benchmark datasets, new data collection efforts to further improve the training data by focusing specifically on skin tone, gender and age, and an improved classifier to produce higher precision results.'' These steps helped, but in general it is impossible to completely mitigate all bias in a real-world dataset. 
-
-In this homework, we will train a scene classifier using data from Lazebnik et al. 2006. Please review the data to check for potential biases: look at images in the data/train and data/test directories and consider their class labels. 
-
-Please list at least three potential biases in the dataset, and describe a potential consequence for each for an application that trained with this data.
-
-For example, if the street images in the dataset were used to train a pedestrian detector for a self-driving car, variation in clothing styles between training data and deployment environments might bias the classifier and fail to detect people. [1--2 sentences each]
-
-% \paragraph{A1:} Your answer here
-
-\begin{mdframed}
-TODO: Your answer here.
-\end{mdframed}
-
-% \pagebreak
-
-% \textbf{Extra Space}
-
-\pagebreak
- 
-\paragraph{Q2:} \textbf{[6 points]} It can be hard and expensive to find and collect data. One approach that researchers and companies have used is Web scraping, which downloads data across many websites to more easily create large datasets.
-
-Web scraping has come under increased scrutiny as computer vision systems have been deployed in real-world applications, because the technical capability to download publicly-accessible data does not imply consent for the use of that data. In 2021, France found that Clearview AI, a company that operates a facial recognition platform for law enforcement, \href{https://techcrunch.com/2021/12/16/clearview-gdpr-breaches-france/}{violated privacy laws} by scraping 10 billion images of people's faces from Facebook, YouTube, and other websites without consent.
-
-\begin{enumerate}[(a)]
-    \item \textbf{[1 point]}
-How was the Lazebnik et al. 2006 dataset collected?
-
-\begin{mdframed}
-TODO: Your answer to (a) here.
-\end{mdframed}
-
-\item \textbf{[2 points]} 
-Dataset collection might merge multiple sources to fill in gaps in sampling a data distribution. Please find additional scene data that could be added to the Lazebnik et al. 2006 dataset. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google} and \href{https://www.kaggle.com}{Kaggle}. 
-
-Find a dataset and provide a URL to it. Given your answers to Q1, describe how the new data addresses gaps in the homework dataset and any limitations of the new data. [3--4 sentences] 
-\begin{mdframed}
-TODO: Your answer to (b) here.
-\end{mdframed}
-
-\item \textbf{[1 + 2 points]} How was this new data collected? If you had to collect new scene data yourself, how would you do it? [6--7 sentences]
-\begin{mdframed}
-TODO: Your answer to (c) here.
-\end{mdframed}
-\end{enumerate}
-
-% \paragraph{A2:} 
-
-% a) Your answer here
-
-% b) Your answer here
-
-% c) Your answer here
-
- 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \pagebreak
-
-% \textbf{Extra Space}
 
 \pagebreak
 
-\paragraph{Q3:} \textbf{[6 points]}
+\paragraph{Q1:} \textbf{[8 points]}
 
 \begin{enumerate} [(a)]
-    \item Define these common terms in machine learning:
+    \item \textbf{[4 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+      Describe the main difference between these two types of metric errors:
+    \end{tcolorbox}
+    % ?????????
+
     \begin{enumerate} [(i)]
-    \item \textbf{[1 point]} Bias
-    \begin{mdframed}
-    TODO: Your answer to (a) (i) here.
-    \end{mdframed}
-    \item \textbf{[1 point]} Variance
-    \begin{mdframed}
-    TODO: Your answer to (a) (ii) here.
-    \end{mdframed}
+    \item \textbf{[1 point]} Bias \textbf{[1-3 sentences]}
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) (i) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+
+    \item \textbf{[1 point]} Variance \textbf{[1-3 sentences]}
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) (ii) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
+    \item \textbf{[2 points]} 
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+    Suppose you find that a model you've created is showing significant metric error. How would you mitigate an error stemming from bias compared to how you would mitigate an error stemming from variance? \textbf{[1-3 sentences]}
+    \end{tcolorbox}
+    
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) (iii) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
     \end{enumerate}
-    \item Define these terms in the context of evaluating a classifier:
+    
+    \item \textbf{[2 points]} 
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+     Define these terms in the context of evaluating a classifier:
+    \end{tcolorbox}
     
     \begin{enumerate} [(i)]
-    \item \textbf{[1 point]} Overfitting
-    \begin{mdframed}
-    TODO: Your answer to (b) (i) here.
-    \end{mdframed}
-    \item \textbf{[1 point]} Underfitting
-    \begin{mdframed}
-    TODO: Your answer to (b) (ii) here.
-    \end{mdframed}
+    \item \textbf{[1 point]} Overfitting \textbf{[1-3 sentences]}
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (b) (i) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
+    \item \textbf{[1 point]} Underfitting \textbf{[1-3 sentences]}
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (b) (ii) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
     \end{enumerate}
-    \item \textbf{[2 points]} How do overfitting and underfitting relate to bias and variance?
-    \begin{mdframed}
-    TODO: Your answer to (c) here.
-    \end{mdframed}
-\end{enumerate}
-
-% \emph{Please answer on the next page.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \pagebreak
-% \paragraph{A3:} Your answer here.
-% Uncomment the stencil below and fill in your solution.
-
-% \begin{enumerate}[(a)]
-
-% \item 
-%     \begin{enumerate} [(i)]
-%     \item 
-%     \item
-%     \end{enumerate}
-
-% \item 
-%     \begin{enumerate} [(i)]
-%     \item 
-%     \item
-%     \end{enumerate}
-% \item 
-
-% \end{enumerate}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\pagebreak
-\paragraph{Q4:} \textbf{[4 points]} Suppose we create a visual word dictionary using SIFT and k-means clustering for a scene recognition algorithm. Examining the SIFT features generated from our training database, we see that many are almost equidistant from two or more visual words. 
-\begin{enumerate}[(a)]
     \item \textbf{[2 points]}
-    Why might this affect classification accuracy?
     
-    \begin{mdframed}
-    TODO: Your answer to (a) here.
-    \end{mdframed}
-
-    \item \textbf{[2 points]}
-    Given the situation, describe \emph{two} methods to improve classification accuracy, and explain why they would help.\\ 
-    \emph{These can be for k-means, or otherwise.}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+     How do overfitting and underfitting relate to bias and variance? \textbf{[2-5 sentences]}
+    \end{tcolorbox}
     
-    \begin{mdframed}
-    TODO: Your answer to (b) here.
-    \end{mdframed}
-
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (c) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-10\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
 \end{enumerate}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \paragraph{A4:} Your answer here.
-% Uncomment the stencil below and fill in your solution.
-
-% \begin{enumerate}[(a)]
-
-% \item 
-
-% \item 
-
-% \end{enumerate}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \pagebreak
-\paragraph{Q5:} \textbf{[4 points]} The way that the bag of words representation handles the spatial layout of visual information can be both an advantage and a disadvantage.
+\paragraph{Q2:} \textbf{[10 points]} Suppose we create a visual word dictionary using SIFT and k-means clustering for a scene recognition algorithm. 
+
 \begin{enumerate}[(a)]
-\item \textbf{[2 points]} Describe an example scenario for each of these cases.
-\begin{mdframed}
-TODO: Your answer to (a) here.
-\end{mdframed}
-\item \textbf{[1 point]} Describe a modification or additional algorithm which might\\overcome the disadvantage.
-\begin{mdframed}
-TODO: Your answer to (b) here.
-\end{mdframed}
+    \item \textbf{[4 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+      What characteristics would be desirable in the dataset that you choose to use to build your visual dictionary? Consider \href{https://www.telusinternational.com/articles/7-types-of-data-bias-in-machine-learning}{data bias trends} in popular machine learning datasets, the groups that these biases can harm, and how your choice in dataset could help. \textbf{[5-7 sentences]}
+    \end{tcolorbox}
 
-\item \textbf{[1 point]} How might we determine whether bag of words is a good model?
-\begin{mdframed}
-TODO: Your answer to (c) here.
-\end{mdframed}
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-18\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+
+    \item 
+     \textbf{[4 points]} After choosing an appropriate dataset, examination of the SIFT features generated from our training database tells us that many features are almost equidistant from two or more visual words.
+    
+    \begin{enumerate} [(i)]
+    \item \textbf{[2 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+      Why might this affect classification accuracy? \textbf{[2-4 sentences]}
+    \end{tcolorbox}
+    
+   \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (b) (i) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-12\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
+    \item \textbf{[2 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+      Why shouldn't we pick out a new dataset that better matches our model? \textbf{[4-6 sentences]}
+    \end{tcolorbox}
+    
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (b) (ii) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-14\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
+    \end{enumerate}
+    
+    \item \textbf{[2 points]} 
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+     Given the situation, describe \emph{two} methods to improve classification accuracy, and explain why they would help. (\emph{These can be for k-means, or otherwise.}) \textbf{[4-6 sentences]}
+    \end{tcolorbox}
+    
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (c) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-14\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
 \end{enumerate}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \paragraph{A5:} Your answer here.
-% Uncomment the stencil below and fill in your solution.
-
-% \begin{enumerate}[(a)]
-
-% \item 
-
-% \item 
-
-% \item 
-
-% \end{enumerate}
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
-\paragraph{Q6:} \textbf{[4 points]} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
+\paragraph{Q3:} \textbf{[8 points]} The bag of words representation handles the spatial layout of information in a way that can be an advantage or a disadvantage in different cases.
 
-Below, we provide pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please edit the pseudo-code to convert this into a multi-class classifier. 
+\begin{enumerate}[(a)]
 
+\item \textbf{[5 points]} 
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+     How might we determine whether bag of words is a good model? Make sure to discuss both technical and nontechnical benchmarks for a "good" model. \textbf{[5-6 sentences]}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-18\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
+\item \textbf{[2 points]} 
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+     Describe two example scenarios when dealing with visual information, one that illustrates an advantage of the bag of words representation, and another that shows a disadvantage of the bag of words representation. \textbf{[5-6 sentences]}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (b) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-18\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
+\item \textbf{[1 point]}
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+      Describe a modification or additional algorithm which might overcome the disadvantage. \textbf{[2-4 sentences]}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (c) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-12\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
+\end{enumerate}
+
+\pagebreak
+\paragraph{Q4:} \textbf{[4 points]} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
+
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+    Below, we provide pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please edit the pseudo-code to convert this into a multi-class classifier. 
+\end{tcolorbox}
+    
 \emph{Hints:} See slides in supervised learning crash course deck, plus your own research. You can take either the one vs.~all (or one vs.~others) approach or the one vs.~one approach in the slides; please declare which approach you take.
 
 \emph{More hints:} Be aware that:
@@ -337,22 +385,25 @@ Below, we provide pseudocode for a linear classifier. It trains a model on a tra
 
 \emph{Note:} A more efficient software application would separate the classifier training and testing into two different functions so that the model could be reused without retraining. Feel free to ignore this for now.
 
-% \emph{Please answer on the next page.}
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Select the implementation you chose.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \pagebreak
-% \paragraph{A6:} Your answer here.
-\begin{mdframed}
-TODO: Select the implementation you chose.
+        \begin{tabular}[h]{lc}
+        \bottomrule
+        One vs One & $\square$ \\
+        One vs Many & $\square$ \\
+        \toprule
+        \end{tabular}
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-3\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
 
-\begin{tabular}[h]{lc}
-\bottomrule
-One vs One & $\square$ \\
-One vs Many & $\square$ \\
-\toprule
-\end{tabular}
-\end{mdframed}
-
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,colback=white!5!white,colframe=green!75!black,height fixed for=all]
 \begin{python}
 # Inputs
 #   train_feats: N x d matrix of N features each d descriptor long
@@ -377,16 +428,29 @@ def classify(train_feats, train_labels, test_feat)
     test_score = weights * test_feats + bias
 
     return 1 if test_score > 0 else -1
+    
+    ################################################
+    # YOU MAY USE THIS ADDITIONAL PAGE
+
+    # WARNING: IF YOU DON'T END UP USING THIS PAGE
+    # KEEP THESE COMMENTS TO MAINTAIN PAGE ALIGNMENT
+    ################################################
+
 \end{python}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% DO NOT REMOVE THIS LINE. IT'S TO MAKE SURE PAGE ALIGNMENT IS CORRECT 
+\phantom{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{tcolorbox}
+
 \pagebreak
 
-\paragraph{Q7:} \textbf{[10 points]} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at interest points).
+\paragraph{Q5:} \textbf{[10 points]} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at interest points).
 
-HOG creates one feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. Computing HOG over the whole image, we might produce a matrix where each row is a descriptor, or if we wish to extract a single feature vector per image, we would concatenate all block-level descriptors.
+HOG creates one feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. In other words, computing HOG over the whole image produces a matrix where each row is a descriptor. 
+% On the other hand, a matrix might not useful in some cases. Thus, we might flatten the image as a vector. If we wish to extract a single feature vector per image, we would concatenate all block-level descriptors. (flattening in code --> vector)
 
 \emph{Blocks can overlap as displayed in the diagram below.}
 
@@ -395,55 +459,112 @@ HOG creates one feature descriptor per image `block'. Each block is split into `
 % \end{center}
 
 \begin{enumerate}[(a)]
-\item \textbf{[6 points]} Given a $72\times72$ image, calculate the number of cells, blocks, and final feature vector size that will occur when we extract HOG features over the whole image with the following parameters using maximum overlap between blocks.
+\item \textbf{[6 points]}
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+     Given a $72\times72$ image, calculate the number of cells, blocks, and final feature vector size that will occur when we extract HOG features over the whole image with the following parameters using maximum overlap between blocks.
+\end{tcolorbox}
 
 \begin{enumerate}[(i)]
-    \item \textbf{[3 $\times$ 1 points]}
-Scenario 1: Pixels per cell = $4\times4$, cells per block = $4\times4$ % (\emph{like in SIFT!}). 
+    \item \textbf{[3 points]} Scenario 1: Pixels per cell = $4\times4$, cells per block = $4\times4$ % (\emph{like in SIFT!}). 
 
 \begin{enumerate}[1.]
-    \item 
-Number of cells: 
-\begin{mdframed}
-TODO: Your answer to (a) (i) 1. here.
-\end{mdframed}
-    \item 
-Number of blocks: 
-\begin{mdframed}
-TODO: Your answer to (a) (i) 2. here.
-\end{mdframed}
-    \item 
-Dimensions of feature vector for the whole image: 
-\begin{mdframed}
-TODO: Your answer to (a) (i) 3. here.
-\end{mdframed}
+    \item \textbf{[1 points]} Number of cells: 
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) (i) (1) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-2\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
+    \item \textbf{[1 points]} Number of blocks: 
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) (i) (2) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-2\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
+    \item \textbf{[1 points]} Dimensions of feature vector for the whole image: 
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) (i) (3) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-2\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
 \end{enumerate}
 
-\item \textbf{[3 $\times$ 1 points]}
-Scenario 2: Pixels per cell = $8\times8$, cells per block = $2\times2$.
+\item \textbf{[3 points]} Scenario 2: Pixels per cell = $8\times8$, cells per block = $2\times2$.
 \begin{enumerate}[1.]
-    \item 
-Number of cells: 
-\begin{mdframed}
-TODO: Your answer to (a) (ii) 1. here.
-\end{mdframed}
-    \item 
-Number of blocks: 
-\begin{mdframed}
-TODO: Your answer to (a) (ii) 2. here.
-\end{mdframed}
-    \item 
-Dimensions of feature vector for the whole image: 
-\begin{mdframed}
-TODO: Your answer to (a) (ii) 3. here.
-\end{mdframed}
+    \item \textbf{[1 points]} Number of cells: 
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) (ii) (1) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-2\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
+    \item \textbf{[1 points]} Number of blocks: 
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) (ii) (2) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-2\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
+    \item \textbf{[1 points]} Dimensions of feature vector for the whole image: 
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (a) (ii) (3) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-2\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
 \end{enumerate}
 \end{enumerate}
 
-\item \textbf{[2 + 2 points]}
+\item \textbf{[4 points]}
 When using HOG, the parameters such as pixels per cell and cells per block impact the resulting feature descriptor and so our performance on a classification task.
 
-What are the pros and cons of the two parameter combinations? Which might you expect to have better performance?
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+    What are the pros and cons of the two parameter combinations? Which might you expect to have better performance? \textbf{[3-6 sentences]}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (b) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-18\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -495,6 +616,19 @@ What are the pros and cons of the two parameter combinations? Which might you ex
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\section*{Discussion Attendance:}
+\paragraph{Extra Credit:} \textbf{[2 points]}
+
+Please mark this box only if you've attended the discussion session in person.
+
+\begin{tabular}[h]{ll}
+$\square$ & I attended the discussion session on DATE \\
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 \section*{Feedback? (Optional)}
 Please help us make the course better. If you have any feedback for this assignment, we'd love to hear it!
@@ -502,6 +636,5 @@ Please help us make the course better. If you have any feedback for this assignm
 
 % \pagebreak
 % \section*{Any additional pages would go here.}
-
 
 \end{document}
