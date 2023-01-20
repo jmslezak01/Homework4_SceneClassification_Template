@@ -198,7 +198,8 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
     '''
     This function will predict a category for every test image by training
     15 many-versus-one linear SVM classifiers on the training data, then
-    using those learned classifiers on the testing data.
+    using those learned classifiers on the testing data. Look over your 
+    psuedocode from the homework.
 
     Inputs:
         train_image_feats:  An nxd numpy array, where n is the number of training
@@ -213,7 +214,6 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
         for the corresponding image in test_image_feats
 
     Look at the model.py file to find the right arguments to train each classifier.
-    Remember to go over your pseudocode from the written homework
     '''
 
     # TODO: Implement this function!
