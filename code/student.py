@@ -212,9 +212,8 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
         An m x 1 numpy array of strings, where each string is the predicted label
         for the corresponding image in test_image_feats
 
-    EXTRA CREDIT up to +5
-    Implement a 15-way classifier using multiple binary (2-way) classifier functions, 
-    as we did in pseudocode in the written questions.
+    Look at the model.py file to find the right arguments to train each classifier.
+    Remember to go over your pseudocode from the written homework
     '''
 
     # TODO: Implement this function!
