@@ -18,7 +18,7 @@
 % https://en.wikibooks.org/wiki/LaTeX
 %
 % Good luck!
-% Srinath and the 1430 staff
+% James and the 1430 staff
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -83,8 +83,8 @@
 \lfoot{\textcolor{red}{\textbf{Only}
 \ifcase\thepage
 \or \textbf{instructions}
-\or \textbf{A1 (a)}
-\or \textbf{A1 (b) - (c)}
+\or \textbf{A1 (a) - (bi)}
+\or \textbf{A1 (bii) - (c)}
 \or \textbf{A2 (a)}
 \or \textbf{A2 (b)}
 \or \textbf{A2 (c)}
@@ -102,7 +102,7 @@
 \fi
 \textbf{should be on this page}
 }}
-\rfoot{\thepage~/ 14}
+\rfoot{\thepage~/ 15}
 
 
 \date{}
@@ -117,7 +117,7 @@
 
 \section*{ Document Instructions}
 \begin{itemize}
-  \item 5 questions \textbf{[8 + 10 + 8 + 4 + 10 = 40 + 2 bonus points]}.
+  \item 5 questions \textbf{[10 + 10 + 8 + 4 + 10 = 42 + 2 bonus points]}.
   \item Fill all your answers within the answer boxes, and \textbf{please do NOT remove the answer box outlines}.
   \item Questions are highlighted in the \textbf{orange boxes}, bonus questions are highlighted in \textbf{blue boxes}, answers should be recorded in the \textbf{green boxes}.
   \item Include code, images, and equations where appropriate.
@@ -135,17 +135,17 @@
 
 \pagebreak
 
-\paragraph{Q1:} \textbf{[8 points]}
+\paragraph{Q1:} \textbf{[10 points]}
 
 \begin{enumerate} [(a)]
     \item \textbf{[4 points]}
     \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-      Describe the main difference between these two types of metric errors:
+      Define these two types of metric errors and how to measure them:
     \end{tcolorbox}
     % ?????????
 
     \begin{enumerate} [(i)]
-    \item \textbf{[1 point]} Bias \textbf{[1-3 sentences]}
+    \item \textbf{[2 points]} Bias \textbf{[2-3 sentences]}
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -157,7 +157,7 @@
         \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
     \end{tcolorbox}
 
-    \item \textbf{[1 point]} Variance \textbf{[1-3 sentences]}
+    \item \textbf{[2 points]} Variance \textbf{[2-3 sentences]}
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,31 +169,16 @@
         \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
     \end{tcolorbox}
     
-    \item \textbf{[2 points]} 
-    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-    Suppose you find that a model you've created is showing significant metric error. How would you mitigate an error stemming from bias compared to how you would mitigate an error stemming from variance? \textbf{[1-3 sentences]}
-    \end{tcolorbox}
-    
-    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
-        \setbox0=\hbox{\parbox[t]{\textwidth}{
-        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
-        TODO: Your answer for (a) (iii) here
-        
-        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        }}
-        \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
-    \end{tcolorbox}
     
     \end{enumerate}
     
-    \item \textbf{[2 points]} 
+    \item \textbf{[4 points]} 
     \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-     Define these terms in the context of evaluating a classifier:
+     Define these terms in the context of evaluating a classifier. How would you measure each one?:
     \end{tcolorbox}
     
     \begin{enumerate} [(i)]
-    \item \textbf{[1 point]} Overfitting \textbf{[1-3 sentences]}
+    \item \textbf{[2 points]} Overfitting \textbf{[2-3 sentences]}
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,8 +189,8 @@
         }}
         \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
     \end{tcolorbox}
-    
-    \item \textbf{[1 point]} Underfitting \textbf{[1-3 sentences]}
+    \vspace{2cm}
+    \item \textbf{[2 points]} Underfitting \textbf{[2-3 sentences]}
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -218,11 +203,11 @@
     \end{tcolorbox}
     
     \end{enumerate}
-    \item \textbf{[2 points]}
-    
+    \item \textbf{[2 points]} 
     \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-     How do overfitting and underfitting relate to bias and variance? \textbf{[2-5 sentences]}
+    Suppose you find that a model you've created is showing significant metric error. How would you mitigate an error stemming from bias? How would you mitigate an error stemming from variance? \textbf{[2-4 sentences]}
     \end{tcolorbox}
+    
     
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
@@ -318,22 +303,6 @@
 
 \begin{enumerate}[(a)]
 
-\item \textbf{[5 points]} 
-\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-     How might we determine whether bag of words is a good model? Make sure to discuss both technical and nontechnical benchmarks for a "good" model. \textbf{[5-6 sentences]}
-\end{tcolorbox}
-
-\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
-        \setbox0=\hbox{\parbox[t]{\textwidth}{
-        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
-        TODO: Your answer for (a) here
-        
-        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        }}
-        \clipbox{0pt \dimexpr\dp0-18\baselineskip\relax{} 0in 0pt}{\copy0}
-\end{tcolorbox}
-
 \item \textbf{[2 points]} 
 \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
      Describe two example scenarios when dealing with visual information, one that illustrates an advantage of the bag of words representation, and another that shows a disadvantage of the bag of words representation. \textbf{[5-6 sentences]}
@@ -343,7 +312,7 @@
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
         
-        TODO: Your answer for (b) here
+        TODO: Your answer for (a) here
         
         %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         }}
@@ -359,11 +328,27 @@
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
         
-        TODO: Your answer for (c) here
+        TODO: Your answer for (b) here
         
         %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         }}
         \clipbox{0pt \dimexpr\dp0-12\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
+\item \textbf{[5 points]} 
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+     How might we determine whether bag of words is a good model? Make sure to discuss both technical and nontechnical benchmarks for a "good" model. \textbf{[5-6 sentences]}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (c) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-18\baselineskip\relax{} 0in 0pt}{\copy0}
 \end{tcolorbox}
 
 \end{enumerate}
