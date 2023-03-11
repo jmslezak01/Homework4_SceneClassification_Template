@@ -18,7 +18,7 @@
 % https://en.wikibooks.org/wiki/LaTeX
 %
 % Good luck!
-% James and the 1430 staff
+% The CSCI 1430 staff
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -83,69 +83,82 @@
 \lfoot{\textcolor{red}{\textbf{Only}
 \ifcase\thepage
 \or \textbf{instructions}
-\or \textbf{A1 (a) - (bi)}
-\or \textbf{A1 (bii) - (c)}
-\or \textbf{A2 (a)}
-\or \textbf{A2 (b)}
-\or \textbf{A2 (c)}
-\or \textbf{A3 (a)}
-\or \textbf{A3 (b) - (c)}
-\or \textbf{A4}
-\or \textbf{A4}
-\or \textbf{A5 (a)}
-\or \textbf{A5 (a)}
-\or \textbf{A5 (b)}
-\or \textbf{discussion attendance}
+\or \textbf{Q1 (a) - (bi)}
+\or \textbf{Q1 (bii) - (c)}
+\or \textbf{Q2 (a - b)}
+\or \textbf{Q2 (c - d)}
+\or \textbf{Q2 (e - f)}
+\or \textbf{Q3 (a)}
+\or \textbf{Q3 (a)}
+\or \textbf{Q3 (b)}
+\or \textbf{Q3 (c)}
+\or \textbf{Q3 (d)}
+\or \textbf{Q4}
+\or \textbf{Q4}
+\or \textbf{Q4}
+\or \textbf{Q5 (a)}
+\or \textbf{Q5 (a)}
+\or \textbf{Q5 (b)}
 \or \textbf{feedback}
 \else
 \textbf{[ERROR: PAGE MISALIGNMENT]}
 \fi
 \textbf{should be on this page}
 }}
-\rfoot{\thepage~/ 15}
+\rfoot{\thepage~/ 18}
 
 
 \date{}
 
-\title{\vspace{-1cm}Homework 4 Written Questions}
+\title{Homework 4 Written Questions}
 
 
 \begin{document}
 \maketitle
-\vspace{-3cm}
 \thispagestyle{fancy}
 
-\section*{ Document Instructions}
+\section*{Template Instructions}
+
+This document is a template with specific answer regions and a fixed number of pages. Given large class sizes and limited TA time, the template helps the course staff to grade efficiently and still focus on the content of your submissions. Please help us in this task:
+ 
 \begin{itemize}
-  \item 5 questions \textbf{[10 + 10 + 8 + 4 + 10 = 42 + 2 bonus points]}.
-  \item Fill all your answers within the answer boxes, and \textbf{please do NOT remove the answer box outlines}.
-  \item Questions are highlighted in the \textbf{orange boxes}, bonus questions are highlighted in \textbf{blue boxes}, answers should be recorded in the \textbf{green boxes}.
-  \item Include code, images, and equations where appropriate.
-  \item To identify all places where your responses are expected, search for `TODO'.
-  \item The answer box sizes have been set by the staff beforehand and \textbf{your responses should not exceed the green borders}. Any overfull text may be truncated, so make sure your responses fit. \textbf{Extra pages are not permitted unless otherwise specified.}
-  \item Make sure your submission has the right number of pages to validate page alignment sanity (check the footer).
-  \item Please make this document anonymous.
+  \item Make this document anonymous.
+  
+  \item Questions are in the orange boxes. Provide answers in the green boxes.
+  \item Use the footer to check for correct page alignment.
+
+  \item \textbf{Do NOT remove the answer box.}
+  \item \textbf{Do NOT change the size of the answer box.}
+  \item \textbf{Extra pages are not permitted unless otherwise specified.}
+  \item \textbf{Template edits or page misalignment will lead to a 10 point deduction.}
 \end{itemize}
 
-\section*{ Gradescope Instructions}
+\section*{Gradescope Submission}
 \begin{itemize}
-  \item When you are finished, compile this document to a PDF and submit it directly to Gradescope. 
-  \item The pages will be automatically assigned to the right questions on Gradescope \textit{assuming you do not add any unnecessary pages}. \textbf{Inconsistently assigned pages will lead to a deduction of 2 points per misaligned page (capped at a maximum 6 point deduction).}
+  \item Compile this document to a PDF and submit it to Gradescope.
+  \item Pages will be automatically assigned to the right questions on Gradescope.
 \end{itemize}
 
+\section*{This Homework}
+\begin{itemize}
+    \item 5 questions \textbf{[10 + 12 + 16 + 6 + 10 = 44 points]}.
+    \item Include code, images, and equations where appropriate.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-
 \paragraph{Q1:} \textbf{[10 points]}
 
 \begin{enumerate} [(a)]
     \item \textbf{[4 points]}
     \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-      Define these two types of metric errors and how to measure them:
+    Define these two types of error in machine learning and how to measure them:
     \end{tcolorbox}
     % ?????????
 
     \begin{enumerate} [(i)]
-    \item \textbf{[2 points]} Bias \textbf{[2-3 sentences]}
+    \item \textbf{[2 points]} Bias \textbf{[2--3 sentences]}
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -157,7 +170,7 @@
         \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
     \end{tcolorbox}
 
-    \item \textbf{[2 points]} Variance \textbf{[2-3 sentences]}
+    \item \textbf{[2 points]} Variance \textbf{[2--3 sentences]}
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -174,11 +187,11 @@
     
     \item \textbf{[4 points]} 
     \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-     Define these terms in the context of evaluating a classifier. How would you measure each one?:
+     Define each terms in the context of evaluating a classifier, and describe how to measure each one.
     \end{tcolorbox}
     
     \begin{enumerate} [(i)]
-    \item \textbf{[2 points]} Overfitting \textbf{[2-3 sentences]}
+    \item \textbf{[2 points]} Overfitting \textbf{[2--3 sentences]}
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -189,8 +202,9 @@
         }}
         \clipbox{0pt \dimexpr\dp0-6\baselineskip\relax{} 0in 0pt}{\copy0}
     \end{tcolorbox}
-    \vspace{2cm}
-    \item \textbf{[2 points]} Underfitting \textbf{[2-3 sentences]}
+    
+    \pagebreak
+    \item \textbf{[2 points]} Underfitting \textbf{[2--3 sentences]}
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -205,7 +219,8 @@
     \end{enumerate}
     \item \textbf{[2 points]} 
     \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-    Suppose you find that a model you've created is showing significant metric error. How would you mitigate an error stemming from bias? How would you mitigate an error stemming from variance? \textbf{[2-4 sentences]}
+    How might we mitigate high bias? 
+    How might we mitigate high variance? \textbf{[2--4 sentences]}
     \end{tcolorbox}
     
     
@@ -222,90 +237,17 @@
     
 \end{enumerate}
 
-\pagebreak
-\paragraph{Q2:} \textbf{[10 points]} Suppose we create a visual word dictionary using SIFT and k-means clustering for a scene recognition algorithm. 
-
-\begin{enumerate}[(a)]
-    \item \textbf{[4 points]}
-    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-      What characteristics would be desirable in the dataset that you choose to use to build your visual dictionary? Consider \href{https://www.telusinternational.com/articles/7-types-of-data-bias-in-machine-learning}{data bias trends} in popular machine learning datasets, the groups that these biases can harm, and how your choice in dataset could help. \textbf{[5-7 sentences]}
-    \end{tcolorbox}
-
-    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
-        \setbox0=\hbox{\parbox[t]{\textwidth}{
-        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
-        TODO: Your answer for (a) here
-        
-        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        }}
-        \clipbox{0pt \dimexpr\dp0-18\baselineskip\relax{} 0in 0pt}{\copy0}
-    \end{tcolorbox}
-
-    \item 
-     \textbf{[4 points]} After choosing an appropriate dataset, examination of the SIFT features generated from our training database tells us that many features are almost equidistant from two or more visual words.
-    
-    \begin{enumerate} [(i)]
-    \item \textbf{[2 points]}
-    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-      Why might this affect classification accuracy? \textbf{[2-4 sentences]}
-    \end{tcolorbox}
-    
-   \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
-        \setbox0=\hbox{\parbox[t]{\textwidth}{
-        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
-        TODO: Your answer for (b) (i) here
-        
-        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        }}
-        \clipbox{0pt \dimexpr\dp0-12\baselineskip\relax{} 0in 0pt}{\copy0}
-    \end{tcolorbox}
-    
-    \item \textbf{[2 points]}
-    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-      Why shouldn't we pick out a new dataset that better matches our model? \textbf{[4-6 sentences]}
-    \end{tcolorbox}
-    
-    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
-        \setbox0=\hbox{\parbox[t]{\textwidth}{
-        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
-        TODO: Your answer for (b) (ii) here
-        
-        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        }}
-        \clipbox{0pt \dimexpr\dp0-14\baselineskip\relax{} 0in 0pt}{\copy0}
-    \end{tcolorbox}
-    
-    \end{enumerate}
-    
-    \item \textbf{[2 points]} 
-    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-     Given the situation, describe \emph{two} methods to improve classification accuracy, and explain why they would help. (\emph{These can be for k-means, or otherwise.}) \textbf{[4-6 sentences]}
-    \end{tcolorbox}
-    
-    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
-        \setbox0=\hbox{\parbox[t]{\textwidth}{
-        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
-        TODO: Your answer for (c) here
-        
-        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        }}
-        \clipbox{0pt \dimexpr\dp0-14\baselineskip\relax{} 0in 0pt}{\copy0}
-    \end{tcolorbox}
-    
-\end{enumerate}
 
 \pagebreak
-\paragraph{Q3:} \textbf{[8 points]} The bag of words representation handles the spatial layout of information in a way that can be an advantage or a disadvantage in different cases.
+\paragraph{Q2:} \textbf{[12 points]} Suppose we are given a scene classification task and a dataset. Suppose also that we pick bag of words as the image representation for our classifier. `Bag of words' originated in text processing; for computer vision, a `word' is a visual feature.
+
+The bag of words representation handles the spatial layout of information in a way that can be an advantage or a disadvantage in different cases.
 
 \begin{enumerate}[(a)]
 
 \item \textbf{[2 points]} 
 \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-     Describe two example scenarios when dealing with visual information, one that illustrates an advantage of the bag of words representation, and another that shows a disadvantage of the bag of words representation. \textbf{[5-6 sentences]}
+     Describe two example scenarios when dealing with images: one that illustrates an advantage of the bag of words representation, and another that shows a disadvantage of the bag of words representation. \textbf{[5--6 sentences]}
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
@@ -316,12 +258,12 @@
         
         %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         }}
-        \clipbox{0pt \dimexpr\dp0-18\baselineskip\relax{} 0in 0pt}{\copy0}
+        \clipbox{0pt \dimexpr\dp0-14\baselineskip\relax{} 0in 0pt}{\copy0}
 \end{tcolorbox}
 
 \item \textbf{[1 point]}
 \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-      Describe a modification or additional algorithm which might overcome the disadvantage. \textbf{[2-4 sentences]}
+      Describe a modification or additional algorithm which might overcome the disadvantage. \textbf{[2--4 sentences]}
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
@@ -332,15 +274,24 @@
         
         %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         }}
-        \clipbox{0pt \dimexpr\dp0-12\baselineskip\relax{} 0in 0pt}{\copy0}
+        \clipbox{0pt \dimexpr\dp0-9\baselineskip\relax{} 0in 0pt}{\copy0}
 \end{tcolorbox}
 
-\item \textbf{[5 points]} 
-\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-     How might we determine whether bag of words is a good model? Make sure to discuss both technical and nontechnical benchmarks for a "good" model. \textbf{[5-6 sentences]}
-\end{tcolorbox}
+\end{enumerate}
 
-\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+\pagebreak
+Next, we define a feature transform for each image, and pick SIFT extracted in a sparse grid pattern. To reduce the size of our problem, we create a dictionary of visual words using k-means clustering upon all the features extracted from our images.
+
+Examining the SIFT features generated from our training database tells us that many features are almost equidistant from two or more visual words.
+
+\begin{enumerate}[(a)]
+    \setcounter{enumi}{2}
+    \item \textbf{[1 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+      Why might this affect classification accuracy? \textbf{[2--4 sentences]}
+    \end{tcolorbox}
+    
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
         
@@ -348,46 +299,219 @@
         
         %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         }}
-        \clipbox{0pt \dimexpr\dp0-18\baselineskip\relax{} 0in 0pt}{\copy0}
-\end{tcolorbox}
+        \clipbox{0pt \dimexpr\dp0-10\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
+
+    \item \textbf{[2 points]} 
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+     Given the situation, describe \emph{two} methods to improve classification accuracy, and explain why they would help. (\emph{These can be for k-means, or otherwise.}) \textbf{[4--6 sentences]}
+    \end{tcolorbox}
+    
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (d) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-14\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+    
+
+    \pagebreak
+    \item \textbf{[4 points]} 
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+        How might we determine whether our classifier is a good model? Discuss technical solutions. \textbf{[5--6 sentences]}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+            \setbox0=\hbox{\parbox[t]{\textwidth}{
+            %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            
+            TODO: Your answer for (e) here
+            
+            %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            }}
+            \clipbox{0pt \dimexpr\dp0-14\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+
+    \item \textbf{[2 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+    After training, suppose we find that our model shows bad performance on our test data. 
+    When is it appropriate to pick a new test dataset for which our model achieves better performance? \textbf{[3--4 sentences]}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer for (f) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-14\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+
+\end{enumerate}
+
+
+\pagebreak
+\paragraph{Q3:} \textbf{[16 points]} The performance of a machine learning system is determined by the data we train it upon and the feature transforms and classifier optimizations we execute. Our perception of that performance is determined by how we evaluate and deploy machine learning systems. Performance limitations from the bias we discussed in Q1 is a \emph{learning bias}, and there are many other kinds of bias throughout the machine learning life cycle.
+
+Another is \emph{evaluation bias}: that evaluation using overall accuracy can mask poor performance in specific subgroups.
+Buolamwini and Gebru's 2018 paper \href{http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf}{Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification} found that Microsoft's Face API trained gender classifier achieved 94\% overall accuracy, with 100\% accuracy on lighter-skinned male faces but only 79.2\% accuracy on darker-skinned female faces. In response to the report, Microsoft \href{https://blogs.microsoft.com/ai/gender-skin-tone-facial-recognition-improvement/}{significantly improved} their classifier's performance by making changes across their machine learning system. This occurred through ``expanded and revised training and benchmark datasets, new data collection efforts to further improve the training data by focusing specifically on skin tone, gender, and age, and an improved classifier to produce higher precision results.''
+
+Suresh and Guttag describe \href{https://dl.acm.org/doi/10.1145/3465416.3483305}{seven kinds of bias in machine learning system life cycles}. To help you gain the language to talk about these issues, please read their article up to Section 4 (log-in through Brown to ACM Digital Library or PDF \href{https://drive.google.com/file/d/10YdCwZ0E0XBYS3oj_hfeI0TQ6lpepGKK/view}{here}) [15 minutes].
+
+\vspace{3ex}
+\hrule
+\vspace{1ex}
+
+In this homework, we will train a scene classifier using data from Lazebnik et al. 2006. Please review the data to check for potential biases: look at images in the data/train and data/test directories and consider their class labels. 
+
+For example, if the street images in the dataset were used for training today, new buildings or the variation in the styles of cars and pedestrian clothings might bias the machine learning system. This could be a data \emph{historical bias} caused by out-of-date real-world sampling, among other potential biases. 
+
+\pagebreak
+\begin{enumerate}[(a)]
+    \item \textbf{[6 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+
+    Please list at least three potential issues in the dataset and name their biases following Suresh and Guttag. There may be more than one bias per issue. 
+
+    For each issue, please describe a potential consequence for an application that trained with this data. \textbf{[2--3 sentences for each]}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-28\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
 
 \end{enumerate}
 
 \pagebreak
-\paragraph{Q4:} \textbf{[4 points]} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
+It can be hard and expensive to find and collect data. One approach that researchers and companies have used is Web scraping, which downloads data across many websites to more easily create large datasets.
 
-\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-    Below, we provide pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please edit the pseudo-code to convert this into a multi-class classifier. 
-\end{tcolorbox}
-    
-\emph{Hints:} See slides in supervised learning crash course deck, plus your own research. You can take either the one vs.~all (or one vs.~others) approach or the one vs.~one approach in the slides; please declare which approach you take.
+Web scraping has come under increased scrutiny as computer vision systems have been deployed in real-world applications, because the technical capability to download publicly-accessible data does not imply consent for the use of that data. In 2021, France found that Clearview AI, a company that operates a facial recognition platform for law enforcement, \href{https://techcrunch.com/2021/12/16/clearview-gdpr-breaches-france/}{violated privacy laws} by scraping 10 billion images of people's faces from Facebook, YouTube, and other websites without consent.
 
-\emph{More hints:} Be aware that:
-\begin{enumerate}
-    \item The input labels in the multi-class case are different, and you will need to match the expected label input for the \texttt{train\_linear\_classifier} function
-    \item You need to make a new decision on how to aggregate or decide on the most confident prediction
-\end{enumerate}
+\begin{enumerate}[(a)]
+    \setcounter{enumi}{1}
+    \item \textbf{[2 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+        Find the Lazebnik et al.~2006 paper. How was their dataset collected?
+    \end{tcolorbox}
 
-\emph{Note:} A more efficient software application would separate the classifier training and testing into two different functions so that the model could be reused without retraining. Feel free to ignore this for now.
-
-\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
         
-        TODO: Select the implementation you chose.
-
-        \begin{tabular}[h]{lc}
-        \bottomrule
-        One vs One & $\square$ \\
-        One vs Many & $\square$ \\
-        \toprule
-        \end{tabular}
+        TODO: Your answer to (b) here
         
         %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         }}
-        \clipbox{0pt \dimexpr\dp0-3\baselineskip\relax{} 0in 0pt}{\copy0}
+        \clipbox{0pt \dimexpr\dp0-8\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+\end{enumerate}
+
+\pagebreak
+Dataset curators might merge multiple sources to fill in gaps in sampling a data distribution. Upon limitations in Microsoft's Face API being revealed, its engineers were required to ``expand and revise training datasets''---perhaps in a hurry and under pressure. 
+
+Please find additional scene data to add to the Lazebnik et al.~2006 dataset to reduce one of your issues. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google Dataset Search} and \href{https://www.kaggle.com}{Kaggle}. 
+
+\begin{enumerate}[(a)]
+    \setcounter{enumi}{2}
+    \item \textbf{[2 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+     
+    Find a dataset and provide a URL to it. How was this new data collected? 
+    Given one of your issues identified in (a), describe how the new data addresses it. \textbf{[3--4 sentences]}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer to (c) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-8\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+\end{enumerate}
+
+\pagebreak
+Microsoft's engineers also conducted ``new data collection efforts.'' With many potential pitfalls, data collection can be a daunting task.
+
+\begin{enumerate}[(a)]
+    \setcounter{enumi}{3}
+    \item \textbf{[6 points]}
+    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+        
+    Suppose you were a machine learning engineer tasked with collecting new scene data yourself. Name three stakeholders you would engage to increase your success and explain why. \textbf{[6--8 sentences]}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+        \setbox0=\hbox{\parbox[t]{\textwidth}{
+        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        TODO: Your answer to (d) here
+        
+        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        }}
+        \clipbox{0pt \dimexpr\dp0-16\baselineskip\relax{} 0in 0pt}{\copy0}
+    \end{tcolorbox}
+
+\end{enumerate}
+
+
+\pagebreak
+\paragraph{Q4:} \textbf{[6 points]} Given a linear classifier such as SVM which separates two classes (binary decision), how might we use multiple linear classifiers to create a new classifier which separates $k$ classes?
+
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
+    Below, we provide simplified pseudocode for a linear classifier. It trains a model on a training set, and then classifies a new test example into one of two classes. Please edit the pseudo-code to convert this into a multi-class classifier. 
 \end{tcolorbox}
 
+\emph{Note:} A more efficient software application would separate the classifier training and testing into two different functions so that the model could be reused without retraining. Feel free to ignore this for now.
+
+\vspace{2ex}
+\hrule
+\vspace{1ex}
+
+You can take either the one vs.~all (or one vs.~others) approach or the one vs.~one approach; please declare which approach you take.
+
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+    \setbox0=\hbox{\parbox[t]{\textwidth}{
+    %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    TODO: Select the implementation you chose.
+
+    \begin{tabular}[h]{lc}
+    \bottomrule
+    One vs One & $\square$ \\ % Replace with \blacksquare
+    One vs Many & $\square$ \\
+    \toprule
+    \end{tabular}
+    
+    %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    }}
+    \clipbox{0pt \dimexpr\dp0-3\baselineskip\relax{} 0in 0pt}{\copy0}
+\end{tcolorbox}
+
+\emph{Be aware that:}
+\begin{enumerate}
+    \item The input labels in the multi-class case are different, and you will need to match the expected label input for the \texttt{train\_linear\_classifier} function.
+    \item You need to make a new decision on how to aggregate or decide on the most confident prediction.
+\end{enumerate}
+
+
+\pagebreak
 \begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,colback=white!5!white,colframe=green!75!black,height fixed for=all]
 \begin{python}
 # Inputs
@@ -414,39 +538,38 @@ def classify(train_feats, train_labels, test_feat)
 
     return 1 if test_score > 0 else -1
     
-    ################################################
-    # YOU MAY USE THIS ADDITIONAL PAGE
-
-    # WARNING: IF YOU DON'T END UP USING THIS PAGE
-    # KEEP THESE COMMENTS TO MAINTAIN PAGE ALIGNMENT
-    ################################################
-
 \end{python}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% DO NOT REMOVE THIS LINE. IT'S TO MAKE SURE PAGE ALIGNMENT IS CORRECT 
-\phantom{}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \end{tcolorbox}
 
 \pagebreak
 
-\paragraph{Q5:} \textbf{[10 points]} In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract HOG features across the entire image (not just at interest points).
+\begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
+    \begin{python}
+        # Extra page if you need it
+            
+        \end{python}
+\end{tcolorbox}
+
+
+
+\pagebreak
+\paragraph{Q5:} \textbf{[10 points]} 
+In this homework, we will use a feature descriptor called HOG---`Histogram of Oriented Gradients'. As its name implies, it works similarly to SIFT. In classification, we might extract many HOG features across the entire image (not just at corners) to create visual words.
 
 HOG creates one feature descriptor per image `block'. Each block is split into `cells' covering pixels. HOG outputs a 9-bin histogram of oriented gradients per cell. We append these together to obtain the feature descriptor for each block. As a result, if we have $(z,z)$ cells per block, the feature descriptor for each block will be of size $z \times z \times 9$. In other words, computing HOG over the whole image produces a matrix where each row is a descriptor. 
-% On the other hand, a matrix might not useful in some cases. Thus, we might flatten the image as a vector. If we wish to extract a single feature vector per image, we would concatenate all block-level descriptors. (flattening in code --> vector)
 
 \emph{Blocks can overlap as displayed in the diagram below.}
 
-% \begin{center}
-    \includegraphics[width=1.3\textwidth]{images/hog-diagram.png}
-% \end{center}
+\begin{center}
+    \includegraphics[width=\linewidth]{images/hog-diagram.png}
+\end{center}
 
 \begin{enumerate}[(a)]
 \item \textbf{[6 points]}
 \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-     Given a $72\times72$ image, calculate the number of cells, blocks, and final feature vector size that will occur when we extract HOG features over the whole image with the following parameters using maximum overlap between blocks.
+     Given a $72\times72$ image, calculate the number of cells, blocks, and feature descriptor size that will occur when we extract one HOG feature with the following parameters using maximum overlap between blocks.
 \end{tcolorbox}
 
 \begin{enumerate}[(i)]
@@ -477,7 +600,7 @@ HOG creates one feature descriptor per image `block'. Each block is split into `
         \clipbox{0pt \dimexpr\dp0-2\baselineskip\relax{} 0in 0pt}{\copy0}
 \end{tcolorbox}
 
-    \item \textbf{[1 points]} Dimensions of feature vector for the whole image: 
+    \item \textbf{[1 points]} Dimensions of resulting single feature descriptor for the whole image: 
 \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -517,7 +640,7 @@ HOG creates one feature descriptor per image `block'. Each block is split into `
         \clipbox{0pt \dimexpr\dp0-2\baselineskip\relax{} 0in 0pt}{\copy0}
 \end{tcolorbox}
 
-    \item \textbf{[1 points]} Dimensions of feature vector for the whole image: 
+    \item \textbf{[1 points]} Dimensions of resulting single feature descriptor for the whole image: 
 \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
         \setbox0=\hbox{\parbox[t]{\textwidth}{
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -532,11 +655,12 @@ HOG creates one feature descriptor per image `block'. Each block is split into `
 \end{enumerate}
 \end{enumerate}
 
+\pagebreak
 \item \textbf{[4 points]}
 When using HOG, the parameters such as pixels per cell and cells per block impact the resulting feature descriptor and so our performance on a classification task.
 
 \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-    What are the pros and cons of the two parameter combinations? Which might you expect to have better performance? \textbf{[3-6 sentences]}
+    What are the pros and cons of the two parameter combinations? Which might you expect to have better performance? \textbf{[3--6 sentences]}
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
@@ -558,33 +682,6 @@ When using HOG, the parameters such as pixels per cell and cells per block impac
 
 % \emph{Note: You may find it interesting to read the thesis of Navneet Dalal (co-inventor of HOG) for more information on this topic. \href{http://lear.inrialpes.fr/people/dalal/NavneetDalalThesis.pdf}{[Link to thesis]} (pages 39, 41 in Section 4.3).}
 
-
-% Uncomment the stencil below and fill in your solution.
-
-% a)
-% Scenario 1:
-% \\ 
-% Number of cells: 
-% \\
-% Number of blocks: 
-% \\
-% Dimensions of feature vector for the whole image: 
-% \\
-
-
-% Scenario 2:
-% \\ 
-% Number of cells: 
-% \\
-% Number of blocks: 
-% \\
-% Dimensions of feature vector for the whole image: 
-% \\
-
-
-% What are the pros and cons of the two parameter combinations? Which might you expect to have better performance?
-% 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -600,18 +697,6 @@ When using HOG, the parameters such as pixels per cell and cells per block impac
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\pagebreak
-\section*{Discussion Attendance:}
-\paragraph{Extra Credit:} \textbf{[2 points]}
-
-Please mark this box only if you've attended the discussion session in person.
-
-\begin{tabular}[h]{ll}
-$\square$ & I attended the discussion session on DATE \\
-\end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
@@ -620,6 +705,7 @@ Please help us make the course better. If you have any feedback for this assignm
 
 
 % \pagebreak
-% \section*{Any additional pages would go here.}
+% \section*{Students: Any additional pages would go here.}
+
 
 \end{document}
