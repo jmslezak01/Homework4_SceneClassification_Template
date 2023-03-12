@@ -111,6 +111,7 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab=
         # vocab is generated, set --load_vocab to 'True'.
         # To regenerate the vocabulary, for example, if you change its size
         # or the length of your feature vectors, then set --load_vocab to 'False'
+        vocab = []
         if load_vocab == 'False':
             print('Computing vocab from training images.')
 
@@ -129,15 +130,15 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab=
                 vocab = np.load('vocab.npy')
                 print('Loaded vocab from file.')
         else:
-            raise ValueError('Unknown load flag! Should be boolean.')
+            raise ValueError("Unknown load flag parameter. Should be 'True' or 'False'")
 
         # YOU CODE get_bags_of_words.m (see student.py)
-        train_image_feats = get_bags_of_words(train_image_paths)
+        train_image_feats = get_bags_of_words(train_image_paths, vocab)
         # You may want to write out train_image_features here as a *.npy and
         # load it up later if you want to just test your classifiers without
         # re-computing features
 
-        test_image_feats  = get_bags_of_words(test_image_paths)
+        test_image_feats  = get_bags_of_words(test_image_paths, vocab)
         # Same goes here for test image features.
 
     elif FEATURE.lower() == 'placeholder':
