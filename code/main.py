@@ -106,18 +106,12 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab=
         print('Tiny images loaded.')
 
     elif FEATURE.lower() == 'bag_of_words':
-        # Because building the vocabulary takes a long time, we save the generated
-        # vocab to a file and re-load it each time to make testing faster. If
-        # you need to re-generate the vocab (for example if you change its size
-        # or the length of your feature vectors), set --load_vocab to False.
-        # This will re-compute the vocabulary.
-        if load_vocab == 'True':
-            # check if vocab exists
-            if not os.path.isfile('vocab.npy'):
-                print('IOError: No existing visual word vocabulary found. Please set --load_vocab to False.')
-                exit()
-
-        elif load_vocab == 'False':
+        # As building the vocabulary takes a long time, we save the generated
+        # vocab to a file and re-load it each time to make testing faster. Once the 
+        # vocab is generated, set --load_vocab to 'True'.
+        # To regenerate the vocabulary, for example, if you change its size
+        # or the length of your feature vectors, then set --load_vocab to 'False'
+        if load_vocab == 'False':
             print('Computing vocab from training images.')
 
             #Larger values will work better (to a point), but are slower to compute
@@ -126,6 +120,14 @@ def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab=
             # YOU CODE build_vocabulary (see student.py)
             vocab = build_vocabulary(train_image_paths, vocab_size)
             np.save('vocab.npy', vocab)
+        elif load_vocab == 'True':
+            # check if vocab exists
+            if not os.path.isfile('vocab.npy'):
+                print('IOError: No existing visual word vocabulary found. Please set --load_vocab to False.')
+                exit()
+            else:
+                vocab = np.load('vocab.npy')
+                print('Loaded vocab from file.')
         else:
             raise ValueError('Unknown load flag! Should be boolean.')
 

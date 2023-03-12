@@ -44,7 +44,7 @@ We recommend to implement the functions in the following order:
 Read main.py for more details.
 '''
 
-def get_tiny_images(image_paths):
+def get_tiny_images(image_paths, extra_credit=False):
     '''
     This feature is inspired by the simple tiny images used as features in
     80 million tiny images: a large dataset for non-parametric object and
@@ -79,7 +79,7 @@ def get_tiny_images(image_paths):
 
     return np.array([])
 
-def build_vocabulary(image_paths, vocab_size):
+def build_vocabulary(image_paths, vocab_size, extra_credit=False):
     '''
     This function samples HOG descriptors from the training images,
     cluster them with kmeans, and then return the cluster centers.
@@ -157,7 +157,7 @@ def build_vocabulary(image_paths, vocab_size):
 
     return np.array([])
 
-def get_bags_of_words(image_paths):
+def get_bags_of_words(image_paths, vocab, extra_credit=False):
     '''
     This function should take in a list of image paths and calculate a bag of
     words histogram for each image, then return those histograms in an array.
@@ -187,19 +187,16 @@ def get_bags_of_words(image_paths):
                          np.linalg.norm, skimage.feature.hog
     '''
 
-    vocab = np.load('vocab.npy')
-    print('Loaded vocab from file.')
-
     #TODO: Implement this function!
 
     return np.array([])
 
-def svm_classify(train_image_feats, train_labels, test_image_feats):
+def svm_classify(train_image_feats, train_labels, test_image_feats, extra_credit=False):
     '''
-    This function will predict a category for every test image by training
-    15 many-versus-one linear SVM classifiers on the training data, then
-    using those learned classifiers on the testing data. Look over your 
-    psuedocode from the homework.
+    This function will predict a category for every test image by performing
+    multi-class classification using a set of binary linear SVM classifiers 
+    trained on the training data. Then, these learned classifiers will be used
+    on the test data.
 
     Inputs:
         train_image_feats:  An nxd numpy array, where n is the number of training
@@ -212,15 +209,20 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
     Outputs:
         An m x 1 numpy array of strings, where each string is the predicted label
         for the corresponding image in test_image_feats
-
-    Look at the model.py file to find the right arguments to train each classifier.
     '''
 
     # TODO: Implement this function!
+    
+    # NOTES:
+    # - We provide for you a binary linear support vector machine (SVM) classifier 
+    #   in `model.py`; the SVM class with function train().
+    # - train() returns weights and biases; use these to score each image.
+    # - You are not allowed to edit the SVM class. The autograder will use our own version of the SVM class.
+    # - If you wish to implement more complex classifiers, use the extra_credit parameter.
 
     return np.array([])
 
-def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats):
+def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, extra_credit=False):
     '''
     This function will predict the category for every test image by finding
     the training image with most similar features. You will complete the given

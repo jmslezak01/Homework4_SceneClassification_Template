@@ -21,7 +21,7 @@ class SVM(object):
         labels: a 1xn numpy array where n is the number of samples
 
         Outputs:
-        none
+        weights, bias: parameters of the classifier that define the hyperplane.
         """
         try:
             if (np.size(np.unique(labels)) > 2):
