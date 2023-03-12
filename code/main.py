@@ -9,7 +9,7 @@ from student import get_tiny_images, build_vocabulary, get_bags_of_words, \
 from create_results_webpage import create_results_webpage
 
 
-def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab='True',
+def projSceneRecBoW(feature='placeholder', classifier='placeholder', load_vocab='False',
                     data_path='../data/'):
     '''
     For this homework, you will need to report performance for three
@@ -225,7 +225,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-f', '--feature', default='placeholder', help='Either placeholder, tiny_image, or bag_of_words')
     parser.add_argument('-c', '--classifier', default='placeholder', help='Either placeholder, nearest_neighbor, or support_vector_machine')
-    parser.add_argument('-v', '--load_vocab', default='True', help='Boolean for either loading existing vocab (True) or creating new one (False)')
+    parser.add_argument('-v', '--load_vocab', default='False', help='Boolean for either loading existing vocab (True) or creating new one (False)')
     parser.add_argument('-d', '--data', default='../data', help='Filepath to the data directory')
 
     args = parser.parse_args()
