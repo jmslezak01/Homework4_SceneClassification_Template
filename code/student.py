@@ -1,12 +1,5 @@
 import numpy as np
-import matplotlib
-import time
 from helpers import progressbar
-from skimage.io import imread
-from skimage.color import rgb2gray
-from skimage.feature import hog
-from skimage.transform import resize
-from scipy.spatial.distance import cdist
 
 '''
 READ FIRST: Relationship Between Functions
@@ -257,13 +250,9 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats,
     '''
 
     k = 1
-
-    # Gets the distance between each test image feature and each train image feature
-    # e.g., cdist
-    distances = cdist(test_image_feats, train_image_feats, 'euclidean')
-
+    
     #TODO:
-    # 1) Find the k closest features to each test image feature in euclidean space
+    # 1) Find the k closest training features to each test image feature by some distance, e.g., Euclidean (L2)
     # 2) Determine the labels of those k features
     # 3) Pick the most common label from the k
     # 4) Store that label in a list
