@@ -64,7 +64,7 @@ def get_tiny_images(image_paths, extra_credit=False):
     skimage.transform.resize for details:
     http://scikit-image.org/docs/dev/api/skimage.transform.html#skimage.transform.resize
 
-    Suggested functions: skimage.transform.resize, skimage.color.rgb2grey,
+    Suggested functions: skimage.transform.resize, skimage.color.rgb2gray,
                          skimage.io.imread, np.reshape
     '''
 
