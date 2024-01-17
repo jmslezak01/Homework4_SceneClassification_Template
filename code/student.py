@@ -1,5 +1,6 @@
 import numpy as np
 from tqdm import tqdm
+from model import SVM
 
 '''
 READ FIRST: Relationship Between Functions
