@@ -1,5 +1,5 @@
 import numpy as np
-from helpers import progressbar
+from tqdm import tqdm
 
 '''
 READ FIRST: Relationship Between Functions
@@ -145,7 +145,7 @@ def build_vocabulary(image_paths, vocab_size, extra_credit=False):
     
     num_imgs = len(image_paths)
     
-    for i in progressbar(range(num_imgs), "Loading ...", num_imgs):
+    for i in tqdm(range(num_imgs), desc="Building Vocab"):
         pass
 
     return np.array([])
