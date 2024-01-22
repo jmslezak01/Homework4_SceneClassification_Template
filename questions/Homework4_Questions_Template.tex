@@ -93,7 +93,6 @@
 \or \textbf{Q3 (a)}
 \or \textbf{Q3 (b)}
 \or \textbf{Q3 (c)}
-\or \textbf{Q3 (d)}
 \or \textbf{Q4}
 \or \textbf{Q4}
 \or \textbf{Q4}
@@ -174,7 +173,7 @@ YES $\square$ NO $\blacksquare$ % change answer to \blacksquare
 
 \section*{This Homework}
 \begin{itemize}
-    \item 5 questions \textbf{[10 + 12 + 16 + 6 + 10 = 54 points]}.
+    \item 5 questions \textbf{[10 + 12 + 14 + 6 + 10 = 52 points]}.
     \item Include code, images, and equations where appropriate.
 \end{itemize}
 
@@ -391,7 +390,7 @@ Examining the SIFT features generated from our training database tells us that m
 
 
 \pagebreak
-\paragraph{Q3:} \textbf{[16 points]} The performance of a machine learning system is determined by the data we train it upon and the feature transforms and classifier optimizations we execute. Our perception of that performance is determined by how we evaluate and deploy machine learning systems. Performance limitations from the bias we discussed in Q1 is a \emph{learning bias}, and there are many other kinds of bias throughout the machine learning life cycle.
+\paragraph{Q3:} \textbf{[14 points]} The performance of a machine learning system is determined by the data we train it upon and the feature transforms and classifier optimizations we execute. Our perception of that performance is determined by how we evaluate and deploy machine learning systems. Performance limitations from the bias we discussed in Q1 is a \emph{learning bias}, and there are many other kinds of bias throughout the machine learning life cycle.
 
 Another is \emph{evaluation bias}: that evaluation using overall accuracy can mask poor performance in specific subgroups.
 Buolamwini and Gebru's 2018 paper \href{http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf}{Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification} found that Microsoft's Face API trained gender classifier achieved 94\% overall accuracy, with 100\% accuracy on lighter-skinned male faces but only 79.2\% accuracy on darker-skinned female faces. In response to the report, Microsoft \href{https://blogs.microsoft.com/ai/gender-skin-tone-facial-recognition-improvement/}{significantly improved} their classifier's performance by making changes across their machine learning system. This occurred through ``expanded and revised training and benchmark datasets, new data collection efforts to further improve the training data by focusing specifically on skin tone, gender, and age, and an improved classifier to produce higher precision results.''
@@ -411,9 +410,9 @@ For example, if the street images in the dataset were used for training today, n
     \item \textbf{[6 points]}
     \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
 
-    Please list at least three potential issues in the dataset and name their biases following Suresh and Guttag. There may be more than one bias per issue. 
+    Please list at least two potential issues in the dataset and name their biases following Suresh and Guttag. There may be more than one bias per issue. 
 
-    For each issue, please describe a potential consequence for an application that trained with this data. \textbf{[2--3 sentences for each]}
+    For each issue, please describe a potential consequence for an application that trained with this data. Is there one bias that seems to be more relevant to the dataset? \textbf{[2--3 sentences for each]}
     \end{tcolorbox}
 
     \begin{tcolorbox}[fit,colback=white!5!white,colframe=green!75!black]
@@ -430,15 +429,17 @@ For example, if the street images in the dataset were used for training today, n
 \end{enumerate}
 
 \pagebreak
-It can be hard and expensive to find and collect data. One approach that researchers and companies have used is Web scraping, which downloads data across many websites to more easily create large datasets.
+Dataset curators might merge multiple sources to fill in gaps in sampling a data distribution. Upon limitations in Microsoft's Face API being revealed, its engineers were required to ``expand and revise training datasets''---perhaps in a hurry and under pressure. 
 
-Web scraping has come under increased scrutiny as computer vision systems have been deployed in real-world applications, because the technical capability to download publicly-accessible data does not imply consent for the use of that data. In 2021, France found that Clearview AI, a company that operates a facial recognition platform for law enforcement, \href{https://techcrunch.com/2021/12/16/clearview-gdpr-breaches-france/}{violated privacy laws} by scraping 10 billion images of people's faces from Facebook, YouTube, and other websites without consent.
+Please find additional scene data to add to the Lazebnik et al.~2006 dataset to reduce one of your issues. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google Dataset Search} and \href{https://www.kaggle.com}{Kaggle}. 
 
 \begin{enumerate}[(a)]
     \setcounter{enumi}{1}
     \item \textbf{[2 points]}
     \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-        Find the Lazebnik et al.~2006 paper. How was their dataset collected?
+     
+    Find a dataset and provide a URL to it. How was this new data collected? 
+    Is it clear how this new data was collected? If not, what might be helpful to know? (Recall some of the values in our ethics resource) Additionally, given one of your issues identified in (a), describe how the new data addresses it. \textbf{[4--5 sentences]}
     \end{tcolorbox}
 
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
@@ -454,17 +455,19 @@ Web scraping has come under increased scrutiny as computer vision systems have b
 \end{enumerate}
 
 \pagebreak
-Dataset curators might merge multiple sources to fill in gaps in sampling a data distribution. Upon limitations in Microsoft's Face API being revealed, its engineers were required to ``expand and revise training datasets''---perhaps in a hurry and under pressure. 
+Microsoft's engineers also conducted ``new data collection efforts.'' With many potential pitfalls, data collection can be a daunting task.
+One approach that researchers and companies have used to ease cost and time investment is 
+\href{https://en.wikipedia.org/wiki/Web_scraping#}{web scraping}, which downloads data across many websites to more easily create large datasets. 
 
-Please find additional scene data to add to the Lazebnik et al.~2006 dataset to reduce one of your issues. Here are two places to find datasets: \href{https://datasetsearch.research.google.com}{Google Dataset Search} and \href{https://www.kaggle.com}{Kaggle}. 
+At the same time, the 15-scene dataset was collected using a combination of personal images, licensed photo collections, and web scraping. Web scraping has come under increased scrutiny as computer vision systems have been deployed in real-world applications, because the technical capability to download publicly-accessible data does not imply consent for the use of that data. In 2021, France found that Clearview AI, a company that operates a facial recognition platform for law enforcement, violated privacy laws by scraping 10 billion images of people’s faces from Facebook, YouTube, and other websites without consent.
+
 
 \begin{enumerate}[(a)]
     \setcounter{enumi}{2}
-    \item \textbf{[2 points]}
+    \item \textbf{[6 points]}
     \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-     
-    Find a dataset and provide a URL to it. How was this new data collected? 
-    Given one of your issues identified in (a), describe how the new data addresses it. \textbf{[3--4 sentences]}
+        
+    Suppose you were a machine learning engineer tasked with collecting new scene data yourself. You are not given clear specifications as to how you collect the images. Name three stakeholders you would engage to increase your success and explain why. (The ethics primer may also be helpful here) \textbf{[6--8 sentences]}
     \end{tcolorbox}
 
     \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
@@ -472,29 +475,6 @@ Please find additional scene data to add to the Lazebnik et al.~2006 dataset to 
         %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
         
         TODO: Your answer to (c) here
-        
-        %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        }}
-        \clipbox{0pt \dimexpr\dp0-8\baselineskip\relax{} 0in 0pt}{\copy0}
-    \end{tcolorbox}
-\end{enumerate}
-
-\pagebreak
-Microsoft's engineers also conducted ``new data collection efforts.'' With many potential pitfalls, data collection can be a daunting task.
-
-\begin{enumerate}[(a)]
-    \setcounter{enumi}{3}
-    \item \textbf{[6 points]}
-    \begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black]
-        
-    Suppose you were a machine learning engineer tasked with collecting new scene data yourself. Name three stakeholders you would engage to increase your success and explain why. \textbf{[6--8 sentences]}
-    \end{tcolorbox}
-
-    \begin{tcolorbox}[colback=white!5!white,colframe=green!75!black]
-        \setbox0=\hbox{\parbox[t]{\textwidth}{
-        %%%%%%% ANSWER STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
-        TODO: Your answer to (d) here
         
         %%%%%%% ANSWER ENDS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         }}
