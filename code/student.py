@@ -1,4 +1,6 @@
 import numpy as np
+import skimage as ski
+import scipy as sci
 from tqdm import tqdm
 from model import SVM
 
@@ -70,8 +72,13 @@ def get_tiny_images(image_paths, extra_credit=False):
     '''
 
     #TODO: Implement this function!
-
-    return np.array([])
+    for image_path in image_paths:
+        images = ski.io.imread(image_path)
+    #print(images.shape)
+    normalized_images = images / 255
+    images_resized = ski.transform.resize(normalized_images, (16,16))
+    #print(image_resized.shape)
+    return np.array([images_resized])
 
 def build_vocabulary(image_paths, vocab_size, extra_credit=False):
     '''
@@ -250,12 +257,43 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats,
         scipy.spatial.distance.cdist, np.argsort, scipy.stats.mode
     '''
 
-    k = 1
+    k = 5
     
     #TODO:
     # 1) Find the k closest training features to each test image feature by some distance, e.g., Euclidean (L2)
     # 2) Determine the labels of those k features
     # 3) Pick the most common label from the k
     # 4) Store that label in a list
+    close_distances = []
+    close_indices = []
+    close_labels = []
+    most_common_label = []
+    for i in range(test_image_feats.shape[0]):
+        #print(test_feature)
+        distance = np.linalg.norm(train_image_feats - test_image_feats[i,:], axis=1)
+        distance = distance.flatten()
+        indices = np.argsort(distance)[:k]
+        #print(distance.shape)
+        #print(indices.shape)
+        close_indices.append(indices)
+        close_distances.append(distance[indices])
+        #print(train_labels.shape)
+        train_labels_array = np.array(train_labels)
+        close_labels.append(train_labels_array[indices])
+        #print(train_labels.shape)
+        most_common_label.append(sci.stats.mode(close_labels))
 
-    return np.array([])
+    # 2) Determine the labels of those k features
+    #close_labels = []
+    #for test_feature in test_image_feats:
+        #close_labels.append(train_labels[indices])
+    
+    #close_labels_array = np.array(close_labels)
+    # 3) Pick the most common label from the k
+    #most_common_label = []
+    #for test_feature in test_image_feats:
+        #most_common_label.append(sci.stats.mode(close_labels))
+    # 4) Store that label in a list
+    #already done
+
+    return np.array([most_common_label])
