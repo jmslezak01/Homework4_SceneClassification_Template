@@ -78,14 +78,16 @@ def get_tiny_images(image_paths, extra_credit=False):
     for image_path in image_paths:
         images = ski.io.imread(image_path)
         images_resized = ski.transform.resize(images, (16,16))
-        normalized_images = images_resized / 255
-        new_images.append(normalized_images)
+        final_imagesize = images_resized.reshape((256,))
+        #normalized_images = images_resized / 255
+        
+        new_images.append(final_imagesize)
 
     #print(images.shape)
     #normalized_images = images / 255
     #images_resized = ski.transform.resize(normalized_images, (16,16))
     #print(images_resized.shape)
-    return np.array([new_images])
+    return np.array(new_images)
 
 def build_vocabulary(image_paths, vocab_size, extra_credit=False):
     '''
@@ -303,15 +305,18 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats,
     most_common_label = []
     #print(test_image_feats.shape)
     #print(train_image_feats.shape)
-    for i in range(test_image_feats.shape[0]):
-        test_distance = test_image_feats[i].reshape(-1, 16*16)
-        train_distance = train_image_feats.reshape(train_image_feats.shape[1], -1)
+    dist = sci.spatial.distance.cdist(test_image_feats, train_image_feats, 'euclidean')
+    for i in range(len(test_image_feats)):
+        #test_distance = test_image_feats[i].reshape(-1, 16*16)
+        #train_distance = train_image_feats.reshape(train_image_feats.shape[1], -1)
         #print(test_distance.shape)
         #print(train_distance.shape)
-        distance = sci.spatial.distance.cdist(test_distance, train_distance, 'euclidean')[0]
+        #distance = sci.spatial.distance.cdist(test_distance, train_distance, 'euclidean')[0]
+        distance = dist[i]
         indices = np.argsort(distance)[:k]
-        train_labels_array = np.array(train_labels)
-        close_labels.append(train_labels_array[indices])
+        #train_labels_array = np.array(train_labels)
+        for j in range(len(indices)):
+            close_labels.append(train_labels[indices[j]])
         most_common = sci.stats.mode(close_labels, keepdims = True)[0][0]
         most_common_label.append(most_common)
     
