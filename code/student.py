@@ -299,18 +299,21 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats,
     # 2) Determine the labels of those k features
     # 3) Pick the most common label from the k
     # 4) Store that label in a list
-    close_distances = []
-    close_indices = []
     close_labels = []
     most_common_label = []
+    #print(test_image_feats.shape)
+    #print(train_image_feats.shape)
     for i in range(test_image_feats.shape[0]):
-        distance = sci.spatial.distance.cdist(test_image_feats[i].reshape(1, -1), train_image_feats.reshape(train_image_feats.shape[0], -1), 'euclidean')[0]
+        test_distance = test_image_feats[i].reshape(-1, 16*16)
+        train_distance = train_image_feats.reshape(train_image_feats.shape[1], -1)
+        #print(test_distance.shape)
+        #print(train_distance.shape)
+        distance = sci.spatial.distance.cdist(test_distance, train_distance, 'euclidean')[0]
         indices = np.argsort(distance)[:k]
-        close_indices.append(indices)
-        close_distances.append(distance[indices])
         train_labels_array = np.array(train_labels)
         close_labels.append(train_labels_array[indices])
-        most_common_label.append(sci.stats.mode(close_labels, keepdims = True)[0][0])
+        most_common = sci.stats.mode(close_labels, keepdims = True)[0][0]
+        most_common_label.append(most_common)
     
     #array = np.array(most_common_label)
     #print(array.shape)
