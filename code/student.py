@@ -3,6 +3,8 @@ import skimage as ski
 import scipy as sci
 from tqdm import tqdm
 from model import SVM
+from sklearn.cluster import KMeans
+from sklearn.cluster import MiniBatchKMeans
 
 '''
 READ FIRST: Relationship Between Functions
@@ -157,11 +159,20 @@ def build_vocabulary(image_paths, vocab_size, extra_credit=False):
     #TODO: Implement this function!
     
     num_imgs = len(image_paths)
-    
+    total_features = []
     for i in tqdm(range(num_imgs), desc="Building Vocab"):
-        pass
+        image = ski.io.imread(image_paths[i])
+        features = ski.feature.hog(image, orientations=9, pixels_per_cell=(4, 4), cells_per_block=(4, 4), feature_vector=True)
+        total_features.append(features)
+    
+    total_features = np.array(total_features)
+    total_features = np.concatenate(total_features, axis=0)
+    total_features = total_features.reshape(-1, 4*4*9)
+    kmeans = MiniBatchKMeans(n_clusters=vocab_size, max_iter=100).fit(total_features)
+    vocabulary = kmeans.cluster_centers_
+        
 
-    return np.array([])
+    return vocabulary
 
 def get_bags_of_words(image_paths, vocab, extra_credit=False):
     '''
@@ -194,8 +205,27 @@ def get_bags_of_words(image_paths, vocab, extra_credit=False):
     '''
 
     #TODO: Implement this function!
+    vocabulary_size = len(vocab)
+    histograms = []
+    for image_path in image_paths:
+        images = ski.io.imread(image_path)
+        features = ski.feature.hog(images, orientations=9, pixels_per_cell=(4, 4), cells_per_block=(4, 4), feature_vector=True)
+        features = features.reshape(-1, 4*4*9)
+        #features = np.transpose(features)
+        #print(features.shape)
+        #print(vocab.shape)
+        distance = sci.spatial.distance.cdist(features, vocab, 'euclidean')
+        closest_word = np.argmin(distance, axis=1)
+        histogram = np.zeros(vocabulary_size)
+        for word in closest_word:
+            histogram[word] += 1
+        histograms.append(histogram)
 
-    return np.array([])
+    
+    
+
+
+    return np.array(histograms)
 
 def svm_classify(train_image_feats, train_labels, test_image_feats, extra_credit=False):
     '''
@@ -274,22 +304,12 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats,
     close_labels = []
     most_common_label = []
     for i in range(test_image_feats.shape[0]):
-        #print(test_feature)
-        #print(train_image_feats.shape)
-        #print(test_image_feats[i].shape)
         distance = sci.spatial.distance.cdist(test_image_feats[i].reshape(1, -1), train_image_feats.reshape(train_image_feats.shape[0], -1), 'euclidean')[0]
-        #print(train_image_feats.shape)
-        #print(test_image_feats[i].shape)
-        #distance = distance.flatten()
         indices = np.argsort(distance)[:k]
-        #print(distance.shape)
-        #print(indices.shape)
         close_indices.append(indices)
         close_distances.append(distance[indices])
-        #print(train_labels.shape)
         train_labels_array = np.array(train_labels)
         close_labels.append(train_labels_array[indices])
-        #print(train_labels.shape)
         most_common_label.append(sci.stats.mode(close_labels, keepdims = True)[0][0])
     
     #array = np.array(most_common_label)
