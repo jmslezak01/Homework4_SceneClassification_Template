@@ -162,7 +162,7 @@ def build_vocabulary(image_paths, vocab_size, extra_credit=False):
     
     num_imgs = len(image_paths)
     total_features = []
-    y = 5
+    y = 4
     for i in tqdm(range(num_imgs), desc="Building Vocab"):
         image = ski.io.imread(image_paths[i])
         features = ski.feature.hog(image, orientations=9, pixels_per_cell=(y, y), cells_per_block=(y, y), feature_vector=True)
@@ -209,7 +209,7 @@ def get_bags_of_words(image_paths, vocab, extra_credit=False):
 
     #TODO: Implement this function!
     vocabulary_size = len(vocab)
-    z = 5
+    z = 4
     histograms = []
     for image_path in image_paths:
         images = ski.io.imread(image_path)
@@ -313,7 +313,7 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats,
         scipy.spatial.distance.cdist, np.argsort, scipy.stats.mode
     '''
 
-    k = 100
+    k = 5
     
     #TODO:
     # 1) Find the k closest training features to each test image feature by some distance, e.g., Euclidean (L2)
