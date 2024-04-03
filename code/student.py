@@ -313,31 +313,29 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats,
         scipy.spatial.distance.cdist, np.argsort, scipy.stats.mode
     '''
 
-    k = 5
+    k = 30
     
     #TODO:
     # 1) Find the k closest training features to each test image feature by some distance, e.g., Euclidean (L2)
     # 2) Determine the labels of those k features
     # 3) Pick the most common label from the k
     # 4) Store that label in a list
-    close_labels = []
+    
     most_common_label = []
     #print(test_image_feats.shape)
     #print(train_image_feats.shape)
     dist = sci.spatial.distance.cdist(test_image_feats, train_image_feats, 'euclidean')
     for i in range(len(test_image_feats)):
-        #test_distance = test_image_feats[i].reshape(-1, 16*16)
-        #train_distance = train_image_feats.reshape(train_image_feats.shape[1], -1)
-        #print(test_distance.shape)
-        #print(train_distance.shape)
-        #distance = sci.spatial.distance.cdist(test_distance, train_distance, 'euclidean')[0]
+        close_labels = []
         distance = dist[i]
         indices = np.argsort(distance)[:k]
-        #train_labels_array = np.array(train_labels)
         for j in range(len(indices)):
             close_labels.append(train_labels[indices[j]])
+        #print(close_labels)
         most_common = sci.stats.mode(close_labels, keepdims = True)[0][0]
+        #print(most_common)
         most_common_label.append(most_common)
+        #print(most_common_label)
     
     #array = np.array(most_common_label)
     #print(array.shape)
