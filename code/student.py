@@ -162,14 +162,15 @@ def build_vocabulary(image_paths, vocab_size, extra_credit=False):
     
     num_imgs = len(image_paths)
     total_features = []
+    y = 5
     for i in tqdm(range(num_imgs), desc="Building Vocab"):
         image = ski.io.imread(image_paths[i])
-        features = ski.feature.hog(image, orientations=9, pixels_per_cell=(4, 4), cells_per_block=(4, 4), feature_vector=True)
+        features = ski.feature.hog(image, orientations=9, pixels_per_cell=(y, y), cells_per_block=(y, y), feature_vector=True)
         total_features.append(features)
     
     total_features = np.array(total_features)
     total_features = np.concatenate(total_features, axis=0)
-    total_features = total_features.reshape(-1, 4*4*9)
+    total_features = total_features.reshape(-1, y*y*9)
     kmeans = MiniBatchKMeans(n_clusters=vocab_size, max_iter=100).fit(total_features)
     vocabulary = kmeans.cluster_centers_
         
@@ -208,14 +209,12 @@ def get_bags_of_words(image_paths, vocab, extra_credit=False):
 
     #TODO: Implement this function!
     vocabulary_size = len(vocab)
+    z = 5
     histograms = []
     for image_path in image_paths:
         images = ski.io.imread(image_path)
-        features = ski.feature.hog(images, orientations=9, pixels_per_cell=(4, 4), cells_per_block=(4, 4), feature_vector=True)
-        features = features.reshape(-1, 4*4*9)
-        #features = np.transpose(features)
-        #print(features.shape)
-        #print(vocab.shape)
+        features = ski.feature.hog(images, orientations=9, pixels_per_cell=(z, z), cells_per_block= (z, z), feature_vector=True)
+        features = features.reshape(-1, z*z*9)
         distance = sci.spatial.distance.cdist(features, vocab, 'euclidean')
         closest_word = np.argmin(distance, axis=1)
         histogram = np.zeros(vocabulary_size)
@@ -257,8 +256,28 @@ def svm_classify(train_image_feats, train_labels, test_image_feats, extra_credit
     # - train() returns weights and biases; use these to score each image.
     # - You are not allowed to edit the SVM class. The autograder will use our own version of the SVM class.
     # - If you wish to implement more complex classifiers, use the extra_credit parameter.
-
-    return np.array([])
+    
+    #svm_1 = SVM()
+    #weights_bias = []
+    SVM_dictionary = {}
+    for sect in np.unique(train_labels):
+        binary_labels = np.where(np.array(train_labels) == sect, 1, -1)
+        weights, bias = SVM().train(train_image_feats, binary_labels)
+        #print(bias.shape)
+        SVM_dictionary[sect] = weights.reshape(-1), bias
+    predictions = []
+    for i in range(len(test_image_feats)):
+        test_values = []
+        for label, (class_test_weight, class_test_bias) in SVM_dictionary.items():
+            score = np.dot(test_image_feats[i], class_test_weight) + class_test_bias
+            #print(score)
+            test_values.append((score[0], label))
+        #print(test_values)
+        #test_values_array = np.array(test_values)
+        _, predicted = max(test_values)
+        predictions.append(predicted)
+    
+    return np.array(predictions)
 
 def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, extra_credit=False):
     '''
@@ -294,7 +313,7 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats,
         scipy.spatial.distance.cdist, np.argsort, scipy.stats.mode
     '''
 
-    k = 50
+    k = 20
     
     #TODO:
     # 1) Find the k closest training features to each test image feature by some distance, e.g., Euclidean (L2)
