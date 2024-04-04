@@ -263,7 +263,6 @@ def svm_classify(train_image_feats, train_labels, test_image_feats, extra_credit
     for sect in np.unique(train_labels):
         binary_labels = np.where(np.array(train_labels) == sect, 1, -1)
         weights, bias = SVM().train(train_image_feats, binary_labels)
-        #print(bias.shape)
         SVM_dictionary[sect] = weights.reshape(-1), bias
     predictions = []
     for i in range(len(test_image_feats)):
@@ -272,8 +271,6 @@ def svm_classify(train_image_feats, train_labels, test_image_feats, extra_credit
             score = np.dot(test_image_feats[i], class_test_weight) + class_test_bias
             #print(score)
             test_values.append((score[0], label))
-        #print(test_values)
-        #test_values_array = np.array(test_values)
         _, predicted = max(test_values)
         predictions.append(predicted)
     
